@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('hugojbello-site App', () => {
+describe('hugojbello-site-routing App', () => {
   let page: AppPage;
 
   beforeEach(() => {
