@@ -7,8 +7,16 @@ interface Config {
   URL_BASE:string;
 
 }
+var prod:boolean = true;
+var port:string;
+if (prod) {
+  port = "";
+  var url_base = 'https://hugojbello.github.io'
+} else {
+  port = "4200";
+  var url_base = 'http://localhost'
+}
 
-var url_base = 'localhost';
 
 export var CONFIG: Config = {
   CLIENT_ID: 'YTP9te890uUMscjE2sbA_IE51ztOMWNB',
@@ -16,7 +24,7 @@ export var CONFIG: Config = {
   //URL_BASE:'hjbello.hopto.org',
   URL_BASE: url_base,
   AUDIENCE: 'https://cam-viewer-hjbello.eu.auth0.com/userinfo', // e.g., http://localhost:3001
-  REDIRECT: 'http://' + url_base + ':4200/callback',
+  REDIRECT: url_base + ':' + port + '/callback',
   SCOPE: 'openid profile email',
   
 
