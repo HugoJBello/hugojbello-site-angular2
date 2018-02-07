@@ -7,7 +7,7 @@ interface Config {
   URL_BASE:string;
 
 }
-var prod:boolean = true;
+var prod:boolean = false;
 var port:string;
 if (prod) {
   port = "";
