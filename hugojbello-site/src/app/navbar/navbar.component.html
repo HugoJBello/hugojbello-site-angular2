@@ -11,6 +11,9 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/entries" routerLinkActive="active">Entries</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin" *ngIf="authService.authenticated" routerLinkActive="active">Admin</a>
+      </li>
       <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -23,8 +26,8 @@
       !-->
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <a  class="btn btn-outline-success my-2 my-sm-0" *ngIf="!authService.authenticated" (click)="authService.login()">Admin</a>
+      <a  class="btn btn-outline-success my-2 my-sm-0" (click)="authService.logout()" *ngIf="authService.authenticated">Log Out</a>
     </form>
   </div>
 </nav>
