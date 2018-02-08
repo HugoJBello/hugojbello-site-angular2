@@ -7,11 +7,12 @@ interface Config {
   URL_BASE:string;
 
 }
-var prod:boolean = false;
+var prod:boolean = true;
 var port:string;
 if (prod) {
   port = "";
-  var url_base = 'https://hugojbello.github.io'
+  var url_base = "https://hjbello-site.firebaseapp.com"
+  //var url_base = 'https://hugojbello.github.io'
 } else {
   port = "4200";
   var url_base = 'http://localhost'
