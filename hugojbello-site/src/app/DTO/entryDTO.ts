@@ -1,4 +1,4 @@
-export class ImageDTO {
+export class EntryDTO {
   name: string;
   title: string;
   updated_at: Date;

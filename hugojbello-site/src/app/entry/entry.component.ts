@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EntryDTO } from '../DTO/entryDTO';
+import { Subscription } from 'rxjs/Subscription';
+import { EntryFinderService } from '../entry-finder.service';
 
 @Component({
   selector: 'app-entry',
@@ -8,15 +11,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EntryComponent implements OnInit, OnDestroy {
   entryName: string;
+  entryDTO: EntryDTO;
+  entryFinderSubscription: Subscription;
+  error:any;
   private sub: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, public entryFinder: EntryFinderService) {
+  //   this.sub = this.route.params.subscribe(params => {
+  //     this.entryName = params['id'].toString(); 
+  //     this.getEntry();
+
+  //  });
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.entryName = params['id'].toString(); // (+) converts string 'id' to a number
-       // In a real app: dispatch action to load the details here.
+       this.entryName = params['id'].toString(); 
+       this.getEntry();
+
     });
+  }
+  getEntry() {
+    this.entryFinderSubscription = this.entryFinder.getEntry(this.entryName)
+      .subscribe(
+      data => this.entryDTO = data,
+      err => error => this.error = err,
+      () => { console.log(this.entryDTO)}
+      );
   }
 
   ngOnDestroy() {

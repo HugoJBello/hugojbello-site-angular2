@@ -11,11 +11,11 @@ export class EntryFinderService {
   
   constructor(private http: HttpClient) { }  // Implement a method to get the private deals
 
-  getHeatMapData(entryName) {
+  getEntry(entryName) {
     return this.http
-      .get(this.urlGetEntry + "/" + entryName, {
-        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
-      })
+      .get(this.urlGetEntry + "/" + entryName//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
       .pipe(
         catchError(this.handleError)
       );

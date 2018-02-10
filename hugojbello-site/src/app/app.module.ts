@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,12 +23,14 @@ import { EntryFinderService } from './entry-finder.service';
     AdminComponent,
     CallbackComponent,
     EntryComponent
-  ],
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [AuthService,
+    HttpClientModule,
     EntryFinderService],
   bootstrap: [AppComponent]
 })
