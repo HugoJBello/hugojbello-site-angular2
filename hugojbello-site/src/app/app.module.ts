@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { EntriesComponent } from './entries/entries.component';
 import { AdminComponent } from './admin/admin.component';
 import { EntryComponent } from './entry/entry.component';
-
+import { EntryFinderService } from './entry-finder.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { EntryComponent } from './entry/entry.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    EntryFinderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

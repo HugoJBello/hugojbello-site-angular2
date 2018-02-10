@@ -7,14 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./entry.component.css']
 })
 export class EntryComponent implements OnInit, OnDestroy {
-  id: number;
+  entryName: string;
   private sub: any;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id']; // (+) converts string 'id' to a number
+       this.entryName = params['id'].toString(); // (+) converts string 'id' to a number
        // In a real app: dispatch action to load the details here.
     });
   }

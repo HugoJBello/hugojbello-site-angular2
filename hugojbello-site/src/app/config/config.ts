@@ -5,6 +5,7 @@ interface Config {
   REDIRECT: string;
   SCOPE: string;
   URL_BASE:string;
+  URL_BACKEND:string;
 
 }
 var prod:boolean = true;
@@ -24,6 +25,7 @@ export var CONFIG: Config = {
   CLIENT_DOMAIN: 'cam-viewer-hjbello.eu.auth0.com', // e.g., you.auth0.com
   //URL_BASE:'hjbello.hopto.org',
   URL_BASE: url_base,
+  URL_BACKEND: 'https://hjbello-site.herokuapp.com',
   AUDIENCE: 'https://cam-viewer-hjbello.eu.auth0.com/userinfo', // e.g., http://localhost:3001
   REDIRECT: url_base + ':' + port + '/callback',
   SCOPE: 'openid profile email',
