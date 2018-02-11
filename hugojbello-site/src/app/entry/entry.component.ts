@@ -11,30 +11,29 @@ import { EntryFinderService } from '../entry-finder.service';
 })
 export class EntryComponent implements OnInit, OnDestroy {
   entryName: string;
+  contentHtml: string;
   entryDTO: EntryDTO;
   entryFinderSubscription: Subscription;
   error:any;
   private sub: any;
 
-  constructor(private route: ActivatedRoute, public entryFinder: EntryFinderService) {
-  //   this.sub = this.route.params.subscribe(params => {
-  //     this.entryName = params['id'].toString(); 
-  //     this.getEntry();
-
-  //  });
-  }
+  constructor(private route: ActivatedRoute, public entryFinder: EntryFinderService) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.entryName = params['id'].toString(); 
        this.getEntry();
-
+ 
     });
+  }
+
+  ngOnChanges(){
+    this.getEntry();
   }
   getEntry() {
     this.entryFinderSubscription = this.entryFinder.getEntry(this.entryName)
       .subscribe(
-      data => this.entryDTO = data,
+      data => {this.entryDTO = data.entry; this.contentHtml=data.contentHtml; console.log(data);},
       err => error => this.error = err,
       () => { console.log(this.entryDTO)}
       );
