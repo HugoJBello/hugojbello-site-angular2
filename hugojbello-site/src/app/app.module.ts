@@ -13,6 +13,7 @@ import { EntriesComponent } from './entries/entries.component';
 import { AdminComponent } from './admin/admin.component';
 import { EntryComponent } from './entry/entry.component';
 import { EntryFinderService } from './entry-finder.service';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EntryFinderService } from './entry-finder.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatChipsModule,
     HttpClientModule
   ],
   providers: [AuthService,

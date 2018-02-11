@@ -1,15 +1,20 @@
 <div class="starter-template">
   <div *ngIf="entryDTO">
-      <h1>{{entryDTO.title}}</h1>
-      <!--<p class="lead">{{entryName}}</p>!-->
+    <h1>{{entryDTO.title}}</h1>
+    <!--<p class="lead">{{entryName}}</p>!-->
     <p>{{entryDTO.created_at}}</p>
-    
+    <p>
+      <mat-chip-list>
+        <div *ngIf="entryDTO.categories">
+          <mat-chip *ngFor="let cat of entryDTO.categories" color="primary" [selectable]="selectable">
+            {{cat}}
+          </mat-chip>
+        </div>
+      </mat-chip-list>
+    </p>
   </div>
 </div>
 
 <div *ngIf="entryDTO" class="site-content container">
-    <div [innerHTML]="contentHtml"></div>
-  </div>
-
-
-  
+  <div [innerHTML]="contentHtml"></div>
+</div>
