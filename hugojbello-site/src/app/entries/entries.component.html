@@ -2,3 +2,10 @@
   <h1>Entries</h1>
   <p class="lead">Entries</p>
 </div>
+
+<div *ngIf="entryList">
+    <div *ngFor="let entry of entryList">
+      <a routerLink="/entry/{{entry.name}}" routerLinkActive="active">{{entry.title}}  ({{entry.created_at}})
+      </a>
+    </div>
+  </div>

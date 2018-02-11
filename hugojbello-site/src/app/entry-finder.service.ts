@@ -8,12 +8,23 @@ import { catchError } from 'rxjs/operators';
 export class EntryFinderService {
   private baseUrl = CONFIG.URL_BACKEND;
   private urlGetEntry = this.baseUrl + "/entries/entry_view";
-  
+  private urlListEntries = this.baseUrl + "/entries/entry_list";
+
   constructor(private http: HttpClient) { }  // Implement a method to get the private deals
 
   getEntry(entryName) {
     return this.http
       .get(this.urlGetEntry + "/" + entryName//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  listEntries() {
+    return this.http
+      .get(this.urlListEntries//, 
       //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(
