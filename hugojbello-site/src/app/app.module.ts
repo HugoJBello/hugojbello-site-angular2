@@ -14,6 +14,8 @@ import { AdminComponent } from './admin/admin.component';
 import { EntryComponent } from './entry/entry.component';
 import { EntryFinderService } from './entry-finder.service';
 import {MatChipsModule} from '@angular/material/chips';
+import { UploadComponent } from './upload/upload.component';
+import { FileUploaderService } from './file-uploader.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {MatChipsModule} from '@angular/material/chips';
     EntriesComponent,
     AdminComponent,
     CallbackComponent,
-    EntryComponent
+    EntryComponent,
+    UploadComponent
     ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import {MatChipsModule} from '@angular/material/chips';
   ],
   providers: [AuthService,
     HttpClientModule,
-    EntryFinderService],
+    EntryFinderService,
+    FileUploaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

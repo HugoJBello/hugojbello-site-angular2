@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { EntriesComponent } from './entries/entries.component';
 import { EntryComponent } from './entry/entry.component';
+import { UploadComponent } from './upload/upload.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -21,6 +22,10 @@ const routes:  Routes = [
   {
     path: 'entries',
     component: EntriesComponent
+  },
+  {
+    path: 'upload',
+    component: UploadComponent
   },
   {
     path: 'entry/:id',
