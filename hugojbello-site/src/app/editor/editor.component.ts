@@ -33,6 +33,7 @@ export class EditorComponent implements OnInit {
     this.entryDTO.created_at = new Date();
     this.entryDTO.name = this.titleToFilename(this.title);
     this.entryDTO.content = this.text;
+    this.entryDTO.new = "true";
     console.log(this.entryDTO);
 
     this.subs = this.entryEditor.postEntry (this.entryDTO).subscribe(

@@ -7,4 +7,5 @@ export class EntryDTO {
   content: string;
   categories:string[];
   edited_by:string;
+  new:string;
 }
