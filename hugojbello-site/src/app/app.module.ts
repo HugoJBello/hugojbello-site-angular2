@@ -16,6 +16,9 @@ import { EntryFinderService } from './entry-finder.service';
 import {MatChipsModule} from '@angular/material/chips';
 import { UploadComponent } from './upload/upload.component';
 import { FileUploaderService } from './file-uploader.service';
+import { EditorComponent } from './editor/editor.component';
+import { EntryEditorService } from './entry-editor.service';
+import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
 
 @NgModule({
   declarations: [
@@ -26,18 +29,26 @@ import { FileUploaderService } from './file-uploader.service';
     AdminComponent,
     CallbackComponent,
     EntryComponent,
-    UploadComponent
+    UploadComponent,
+    EditorComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatChipsModule,
-    HttpClientModule
+    HttpClientModule,
+    SimplemdeModule.forRoot({
+      provide: SIMPLEMDE_CONFIG,
+      useValue: {
+        placeholder: 'placeholder'
+      }
+    })
   ],
   providers: [AuthService,
     HttpClientModule,
     EntryFinderService,
-    FileUploaderService],
+    FileUploaderService,
+    EntryEditorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
