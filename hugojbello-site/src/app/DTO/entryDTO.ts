@@ -1,4 +1,6 @@
 export class EntryDTO {
+  _id:string;
+  id:string;
   name: string;
   title: string;
   updated_at: Date;
@@ -6,6 +8,6 @@ export class EntryDTO {
   authon: string;
   content: string;
   categories:string[];
-  edited_by:string;
+  edited_by:string; 
   new:string;
 }

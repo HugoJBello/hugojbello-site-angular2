@@ -1,6 +1,25 @@
 <div class="site-content container">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          title:
+        </td>
+        <td>
+          <input #textbox type="text" [(ngModel)]="title" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+            categories:
+          </td>
+          <td>
+            <input #textbox type="text" [(ngModel)]="categories" />
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  
   <input type="submit" (click)="onPostButton()" value="Post" />
-  <input #textbox type="text" [(ngModel)]="title"/>
-  <simplemde [(ngModel)]="text" ></simplemde>
-(
+  <simplemde [(ngModel)]="text"></simplemde>
 </div>

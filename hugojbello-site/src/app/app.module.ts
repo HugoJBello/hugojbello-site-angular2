@@ -19,7 +19,11 @@ import { FileUploaderService } from './file-uploader.service';
 import { EditorComponent } from './editor/editor.component';
 import { EntryEditorService } from './entry-editor.service';
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
-
+import { MatIconModule } from "@angular/material/icon"; 
+import { FormsModule } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +39,13 @@ import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatIconModule,
     MatChipsModule,
     HttpClientModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
     SimplemdeModule.forRoot({
       provide: SIMPLEMDE_CONFIG,
       useValue: {

@@ -36,6 +36,13 @@ const routes:  Routes = [
     ]
   },
   {
+    path: 'edit/:id',
+    component: EditorComponent,
+    canActivate: [
+      AuthGuard
+    ]
+  },
+  {
     path: 'entry/:id',
     component: EntryComponent
   },
