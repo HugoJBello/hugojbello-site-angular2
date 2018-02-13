@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EntryDTO } from '../DTO/entryDTO';
 import { Subscription } from 'rxjs/Subscription';
 import { EntryFinderService } from '../entry-finder.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-entry',
@@ -17,7 +18,8 @@ export class EntryComponent implements OnInit, OnDestroy {
   error:any;
   private sub: any;
 
-  constructor(private route: ActivatedRoute, public entryFinder: EntryFinderService) {}
+  constructor(private route: ActivatedRoute, public entryFinder: EntryFinderService,
+    public authService: AuthService) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {

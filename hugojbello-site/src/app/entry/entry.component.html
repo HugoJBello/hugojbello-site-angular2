@@ -3,6 +3,7 @@
     <h1>{{entryDTO.title}}</h1>
     <!--<p class="lead">{{entryName}}</p>!-->
     <p>{{entryDTO.created_at}}</p>
+    <p><a class="nav-link" routerLink="/edit/{{entryDTO.name}}" *ngIf="authService.authenticated" routerLinkActive="active">    <fa name="cog" animation="spin"></fa></a></p>
     <p>
       <mat-chip-list>
         <div *ngIf="entryDTO.categories">
@@ -16,5 +17,5 @@
 </div>
 
 <div *ngIf="entryDTO" class="site-content container">
-  <div [innerHTML]="contentHtml"></div>
+    <div [innerHTML]="contentHtml"></div>
 </div>

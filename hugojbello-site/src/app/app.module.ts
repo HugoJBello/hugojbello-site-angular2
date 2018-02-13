@@ -24,6 +24,9 @@ import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,7 @@ import { MatInputModule } from '@angular/material';
     MatChipsModule,
     HttpClientModule,
     FormsModule,
+    AngularFontAwesomeModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
