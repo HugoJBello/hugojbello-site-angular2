@@ -5,7 +5,7 @@ export class EntryDTO {
   title: string;
   updated_at: Date;
   created_at: Date;
-  authon: string;
+  author: string;
   content: string;
   categories:string[];
   edited_by:string; 

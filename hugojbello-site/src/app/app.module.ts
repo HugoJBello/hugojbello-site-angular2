@@ -25,6 +25,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { UtilsDateService } from './utils-date.service';
+import { CategoriesService } from './categories.service';
+import { CategoryComponent } from './category/category.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     CallbackComponent,
     EntryComponent,
     UploadComponent,
-    EditorComponent
+    EditorComponent,
+    CategoryComponent,
+    CategoriesComponent
     ],
   imports: [
     BrowserModule,
@@ -60,7 +66,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     HttpClientModule,
     EntryFinderService,
     FileUploaderService,
-    EntryEditorService],
+    EntryEditorService,
+    UtilsDateService,
+    CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

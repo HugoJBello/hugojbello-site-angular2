@@ -1,0 +1,24 @@
+<div class="starter-template">
+    <h1>Tag {{categoryName}}</h1>
+  </div>
+  
+
+<div class="list-group" *ngIf="entryList">
+  <div *ngFor="let entry of entryList">
+    <a class="list-group-item list-group-item-action flex-column align-items-start" routerLink="/entry/{{entry.name}}" routerLinkActive="active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{entry.title}}</h5>
+        <small>{{timeSince(entry.created_at)}}</small>
+      </div>
+      <p class="mb-1">
+        <mat-chip-list>
+          <div *ngIf="entry.categories">
+            <mat-chip *ngFor="let cat of entry.categories" color="primary" [selectable]="selectable">
+              {{cat}}
+            </mat-chip>
+          </div>
+        </mat-chip-list>
+      </p>
+    </a>
+  </div>
+</div>

@@ -9,17 +9,17 @@ export class FileUploaderService {
   private baseUrl = CONFIG.URL_BACKEND;
   private urlPostFile = this.baseUrl + "/files/upload";
   constructor(private http: HttpClient) { }
-  
-  postFile (fileDTO: FileDTO): Observable<FileDTO> {
-     return this.http.post<FileDTO>(this.urlPostFile, fileDTO)
+
+  postFile(fileDTO: FileDTO): Observable<FileDTO> {
+    return this.http.post<FileDTO>(this.urlPostFile, fileDTO)
       .pipe(
-        catchError(this.handleError)
+      catchError(this.handleError)
       );
   }
 
-// Implement a method to handle errors if any
-private handleError(err: HttpErrorResponse | any) {
-  console.error('An error occurred', err);
-  return Observable.throw(err.message || err);
-}
+  // Implement a method to handle errors if any
+  private handleError(err: HttpErrorResponse | any) {
+    console.error('An error occurred', err);
+    return Observable.throw(err.message || err);
+  }
 }

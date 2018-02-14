@@ -1,0 +1,10 @@
+<div class="list-group" *ngIf="categoryList">
+  <div *ngFor="let category of categoryList">
+    <a routerLink="/category/{{category.name}}" routerLinkActive="active">   
+      <div class="badge badge-pill badge-secondary">
+          {{category.name}}
+      </div>
+        <div>last post {{timeSince(category.created_at)}} ago, {{category.number_of_entries}} entries.</div>
+    </a>
+  </div>
+</div>

@@ -8,7 +8,7 @@ interface Config {
   URL_BACKEND:string;
 
 }
-var prod:boolean = false;
+var prod:boolean = true;
 var useLocalhost:boolean = false;
 
 var port:string;
