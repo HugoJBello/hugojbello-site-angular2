@@ -26,7 +26,6 @@ import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-
 @NgModule({
   declarations: [
     AppComponent,
