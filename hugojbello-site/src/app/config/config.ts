@@ -24,7 +24,8 @@ if (prod) {
 if (useLocalhost) {
   var urlBackend="http://localhost:8080";
 } else {
-  var urlBackend = 'https://hjbello-site.herokuapp.com';
+  var urlBackend = "http://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com";
+  //var urlBackend = 'https://hjbello-site.herokuapp.com';
 }
 
 export var CONFIG: Config = {
