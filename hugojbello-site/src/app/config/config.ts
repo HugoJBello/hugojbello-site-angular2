@@ -24,7 +24,7 @@ if (prod) {
 if (useLocalhost) {
   var urlBackend="http://localhost:8080";
 } else {
-  var urlBackend = "http://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com";
+  var urlBackend = "https://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com";
   //var urlBackend = 'https://hjbello-site.herokuapp.com';
 }
 
