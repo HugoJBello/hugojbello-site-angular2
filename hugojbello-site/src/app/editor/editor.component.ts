@@ -3,7 +3,7 @@ import { EntryDTO } from '../DTO/entryDTO';
 import {EntryEditorService} from '../entry-editor.service';
 import { Subscription } from 'rxjs/Subscription';
 import { EntryFinderService } from '../entry-finder.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -24,7 +24,7 @@ export class EditorComponent implements OnInit {
 
   private sub: any;
 
-  constructor( public entryEditor: EntryEditorService,
+  constructor( public entryEditor: EntryEditorService, private router:Router,
     private route: ActivatedRoute, public entryFinder: EntryFinderService) { }
 
 
@@ -57,8 +57,11 @@ export class EditorComponent implements OnInit {
 
     this.subs = this.entryEditor.postEntry (this.entryDTO).subscribe(
       data => {console.log(data);},
-      err => {}
+      err => {},
+      () => {this.router.navigate(['./entry/' + this.entryDTO.name]);}
     );
+
+    
   }
 
   ngOnInit() {

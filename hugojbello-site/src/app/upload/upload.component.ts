@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import { Subscription } from 'rxjs/Subscription';
 import { FileUploaderService } from '../file-uploader.service';
 import { FileDTO } from '../DTO/fileDTO';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class UploadComponent implements OnInit {
   getFileSubscription: Subscription;
   uploadFileSubscription: Subscription;
 
-  constructor(public fileUploader:FileUploaderService) { }
+  constructor(public fileUploader:FileUploaderService,  private router: Router) { }
 
   ngOnInit() {
   }
@@ -49,7 +50,10 @@ public readFile(fileToRead: File): Observable<MSBaseReader>{
  public onClickButton(): void { 
   this.uploadFileSubscription = this.fileUploader.postFile (this.fileDTO).subscribe(
     data => {},
-    err => {}
+    err => {},
+    () => {
+      this.router.navigate(['./files']);
+    }
   );
 }
 
