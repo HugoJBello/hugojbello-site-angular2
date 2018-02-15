@@ -1,0 +1,16 @@
+<div *ngFor="let entry of filesDTO">
+  <div class="card" style="width: 20rem;">
+    <div class="block imgContainer">
+
+      <div class="card-header">
+        <span class="card-title">{{entry.filename}}</span>
+      </div>
+
+      <div class="card-body">
+        <img src="{{urlBase}}{{entry.filename}}">
+      </div>
+      <p class="card-text">{{urlBase}}{{entry.filename}}</p>
+    </div>
+  </div>
+  <br>
+</div>

@@ -3,17 +3,30 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { CONFIG } from './config/config';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
-import { FileDTO } from './DTO/fileDTO'
+import { FileDTO } from './DTO/fileDTO';
+
+
 @Injectable()
 export class FileUploaderService {
-  private baseUrl = CONFIG.URL_BACKEND;
+  public baseUrl = CONFIG.URL_BACKEND;
   private urlPostFile = this.baseUrl + "/files/upload";
+  private urlGetLastFiles = this.baseUrl + "/files/images";
   constructor(private http: HttpClient) { }
 
   postFile(fileDTO: FileDTO): Observable<FileDTO> {
     return this.http.post<FileDTO>(this.urlPostFile, fileDTO)
       .pipe(
       catchError(this.handleError)
+      );
+  }
+
+  getLastFiles(limit:number) {
+    return this.http
+      .get(this.urlGetLastFiles + "/" + limit//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
       );
   }
 

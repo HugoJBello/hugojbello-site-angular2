@@ -7,6 +7,7 @@ import { UploadComponent } from './upload/upload.component';
 import { EditorComponent } from './editor/editor.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryComponent } from './category/category.component';
+import { FilesComponent } from "./files/files.component";
 
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -29,6 +30,13 @@ const routes:  Routes = [
   {
     path: 'upload',
     component: UploadComponent
+  },
+  {
+    path: 'files',
+    component: FilesComponent,
+    canActivate: [
+      AuthGuard
+    ]
   },
   {
     path: 'editor',

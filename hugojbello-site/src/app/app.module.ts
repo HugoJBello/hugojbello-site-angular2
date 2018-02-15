@@ -29,6 +29,7 @@ import { UtilsDateService } from './utils-date.service';
 import { CategoriesService } from './categories.service';
 import { CategoryComponent } from './category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { FilesComponent } from './files/files.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CategoriesComponent } from './categories/categories.component';
     UploadComponent,
     EditorComponent,
     CategoryComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    FilesComponent
     ],
   imports: [
     BrowserModule,
