@@ -11,7 +11,11 @@ import { UtilsDateService } from '../utils-date.service';
 })
 export class EntriesComponent implements OnInit {
   entryList:EntryDTO[];
+  entryListInPage:EntryDTO[];
   entryFinderSubscription: Subscription;
+  pageNow:number=1;
+  totalItems:number;
+  itemsPerPage:number=10;
   error:any;
   constructor(public entryFinder: EntryFinderService, public utilsDate:UtilsDateService) {}
 
@@ -21,14 +25,26 @@ export class EntriesComponent implements OnInit {
   getEntryList() {
     this.entryFinderSubscription = this.entryFinder.listEntries()
       .subscribe(
-      data => {this.entryList = data; console.log(data);},
+      data => {this.entryList = data},
       err => error => this.error = err,
-      () => { console.log(this.entryList)}
+      () => { this.updateList(); this.totalItems= this.entryList.length; console.log(this.entryList);console.log(this.totalItems);}
       );
   }
 
-    timeSince(date:Date) {
+  timeSince(date:Date) {
       return this.utilsDate.timeSince(date);
+  }
+
+  updateList(){
+    var firstEntry=(this.pageNow -1)*this.itemsPerPage;
+    var lastEntry= firstEntry + this.itemsPerPage;//(this.pageNow -1)*(this.itemsPerPage+1);
+    console.log("(" + firstEntry + " " + lastEntry + ")");
+    this.entryListInPage = this.entryList.slice(firstEntry, lastEntry);
+
+  }
+  pageChanged(page){
+  this.pageNow = page;
+  this.updateList();
   }
 
 }

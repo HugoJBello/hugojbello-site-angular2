@@ -4,8 +4,8 @@
 </div>
 
 
-<div class="list-group" *ngIf="entryList">
-  <div *ngFor="let entry of entryList">
+<div class="list-group" *ngIf="entryListInPage">
+  <div *ngFor="let entry of entryListInPage">
     <a class="list-group-item list-group-item-action flex-column align-items-start" routerLink="/entry/{{entry.name}}" routerLinkActive="active">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{entry.title}}</h5>
@@ -20,7 +20,13 @@
           </div>
         </mat-chip-list>
       </p>
-
     </a>
+    <br>
   </div>
+  <ng-container *ngIf="entryList">
+  <div *ngFor="let item of entryListInPage | 
+                          paginate: { itemsPerPage: itemsPerPage, currentPage: 
+                            pageNow,totalItems:totalItems  }"></div>
+        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </ng-container>    
 </div>

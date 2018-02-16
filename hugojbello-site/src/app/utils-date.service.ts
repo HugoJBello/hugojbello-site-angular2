@@ -11,7 +11,6 @@ export class UtilsDateService {
   }
   
   public timeSince(date:Date) {
-    console.log(date);
     var seconds = Math.floor(((new Date()).getTime() - (new Date(date)).getTime()) / 1000);
   
     var interval = Math.floor(seconds / 31536000);

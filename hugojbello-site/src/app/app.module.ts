@@ -30,6 +30,7 @@ import { CategoriesService } from './categories.service';
 import { CategoryComponent } from './category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FilesComponent } from './files/files.component';
+import { NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { FilesComponent } from './files/files.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    NgxPaginationModule,
     SimplemdeModule.forRoot({
       provide: SIMPLEMDE_CONFIG,
       useValue: {
