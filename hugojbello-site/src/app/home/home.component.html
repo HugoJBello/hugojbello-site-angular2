@@ -1,4 +1,16 @@
 <div class="starter-template">
-  <h1>Hugo J. Bello site</h1>
-  <p class="lead">My page</p>
+  <div *ngIf="entryDTO">
+   <!-- 
+     <h1>{{entryDTO.title}}</h1> 
+    <p class="lead">{{entryName}}</p>!
+    <p>{{formatDate(entryDTO.created_at)}}</p>
+    !-->
+    <p><a class="nav-link" routerLink="/edit/{{entryDTO.name}}" *ngIf="authService.authenticated" routerLinkActive="active">    <fa name="cog" animation="spin"></fa></a></p>
+    <p>   
+    </p>
+  </div>
+</div>
+
+<div *ngIf="entryDTO" class="site-content container">
+  <div [innerHTML]="contentHtml"></div>
 </div>

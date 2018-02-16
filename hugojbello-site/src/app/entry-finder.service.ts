@@ -9,12 +9,22 @@ export class EntryFinderService {
   private baseUrl = CONFIG.URL_BACKEND;
   private urlGetEntry = this.baseUrl + "/entries/entry_view";
   private urlListEntries = this.baseUrl + "/entries/entry_list";
-
+  public mainPageName = CONFIG.MAIN_PAGE_NAME;
   constructor(private http: HttpClient) { }  // Implement a method to get the private deals
 
   getEntry(entryName) {
     return this.http
       .get(this.urlGetEntry + "/" + entryName//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getMainPage() {
+    return this.http
+      .get(this.urlGetEntry + "/" + this.mainPageName//, 
       //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(

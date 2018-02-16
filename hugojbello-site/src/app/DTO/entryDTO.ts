@@ -9,5 +9,6 @@ export class EntryDTO {
   content: string;
   categories:string[];
   edited_by:string; 
+  hidden:boolean; 
   new:string;
 }

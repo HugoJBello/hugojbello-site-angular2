@@ -8,4 +8,5 @@ export class ImageDTO {
   categories:string[];
   edited_by:string;
   version:string;
+  hidden:boolean; 
 }

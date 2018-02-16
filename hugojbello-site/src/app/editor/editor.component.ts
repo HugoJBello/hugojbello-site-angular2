@@ -15,6 +15,7 @@ export class EditorComponent implements OnInit {
   text:string;
   entryName: string;
   categories:string;
+  hidden:boolean = false;
 
   title:string= "title";
   entryDTO: EntryDTO = new EntryDTO();
@@ -30,6 +31,10 @@ export class EditorComponent implements OnInit {
 
   ngOnChange(){
     console.log(this.text);
+  }
+  onChangeHidden(){
+    this.hidden=!this.hidden
+    console.log(this.hidden);
   }
 
   titleToFilename(title){
@@ -52,13 +57,26 @@ export class EditorComponent implements OnInit {
     this.entryDTO.name = this.titleToFilename(this.title);
     this.entryDTO.content = this.text;
     this.entryDTO.new = this.isNew;
-    this.entryDTO.categories=this.categories.split(";");
+    this.entryDTO.hidden=this.hidden;
+
+    if (this.categories) this.entryDTO.categories=this.categories.split(";");
     console.log(this.entryDTO);
 
     this.subs = this.entryEditor.postEntry (this.entryDTO).subscribe(
       data => {console.log(data);},
       err => {},
       () => {this.router.navigate(['./entry/' + this.entryDTO.name]);}
+    );
+
+    
+  }
+
+  public onDeleteButton(): void { 
+    
+    this.subs = this.entryEditor.removeEntry (this.entryDTO.name).subscribe(
+      data => {console.log(data);},
+      err => {},
+      () => {this.router.navigate(['./entries']);}
     );
 
     

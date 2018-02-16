@@ -19,7 +19,20 @@
       </tr>
     </tbody>
   </table>
-  
+  <br>
+  <input type="checkbox" [checked]="hidden" (change)="onChangeHidden()" /> Hidden entry
+  <br>
+  <br>     
   <input type="submit" (click)="onPostButton()" value="Post" />
+  <br>  
+  
   <simplemde [(ngModel)]="text"></simplemde>
+  <br>
+
+  <div *ngIf="entryDTO">
+      <input type="submit" (click)="onDeleteButton()" value="Delete entry" />
+  </div>
+  
+
+
 </div>

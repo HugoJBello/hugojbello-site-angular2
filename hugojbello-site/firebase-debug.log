@@ -1,0 +1,17 @@
+[debug] [2018-02-16T14:48:41.154Z] ----------------------------------------------------------------------
+[debug] [2018-02-16T14:48:41.157Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HJBG\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-02-16T14:48:41.157Z] CLI Version:   3.17.4
+[debug] [2018-02-16T14:48:41.157Z] Platform:      win32
+[debug] [2018-02-16T14:48:41.157Z] Node Version:  v8.9.3
+[debug] [2018-02-16T14:48:41.158Z] Time:          Fri Feb 16 2018 15:48:41 GMT+0100 (Hora estándar romance)
+[debug] [2018-02-16T14:48:41.158Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-16T14:48:41.172Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-16T14:48:41.173Z] > authorizing via signed-in user
+[debug] [2018-02-16T14:48:41.175Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/hjbello-site  
+  
+ Fri Feb 16 2018 15:48:41 GMT+0100 (Hora estándar romance)
+[debug] [2018-02-16T14:48:41.879Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-16T14:48:41.879Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/hjbello-site/tokens  
+  
+ Fri Feb 16 2018 15:48:41 GMT+0100 (Hora estándar romance)

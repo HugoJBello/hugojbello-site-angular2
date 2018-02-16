@@ -9,6 +9,7 @@ import { EntryDTO } from './DTO/entryDTO';
 export class EntryEditorService {
   private baseUrl = CONFIG.URL_BACKEND;
   private urlPostEntry = this.baseUrl + "/editor/entry_editor";
+  private urlRemoveEntry = this.baseUrl + "/entries/entry_remove";
 
   constructor(private http: HttpClient) { }
   
@@ -20,6 +21,16 @@ export class EntryEditorService {
       );
   }
 
+  removeEntry(entryName) {
+    return this.http
+      .get(this.urlRemoveEntry + "/" + entryName//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  
 // Implement a method to handle errors if any
 private handleError(err: HttpErrorResponse | any) {
   console.error('An error occurred', err);
