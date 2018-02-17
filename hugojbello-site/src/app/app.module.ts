@@ -31,6 +31,8 @@ import { CategoryComponent } from './category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FilesComponent } from './files/files.component';
 import { NgxPaginationModule} from 'ngx-pagination';
+import { AboutComponent } from './about/about.component';
+import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { NgxPaginationModule} from 'ngx-pagination';
     EditorComponent,
     CategoryComponent,
     CategoriesComponent,
-    FilesComponent
+    FilesComponent,
+    AboutComponent
     ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { NgxPaginationModule} from 'ngx-pagination';
     MatFormFieldModule,
     MatInputModule,
     NgxPaginationModule,
+    MarkdownModule.forRoot(),
     SimplemdeModule.forRoot({
       provide: SIMPLEMDE_CONFIG,
       useValue: {

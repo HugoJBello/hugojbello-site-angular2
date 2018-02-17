@@ -10,6 +10,8 @@ export class EntryFinderService {
   private urlGetEntry = this.baseUrl + "/entries/entry_view";
   private urlListEntries = this.baseUrl + "/entries/entry_list";
   public mainPageName = CONFIG.MAIN_PAGE_NAME;
+  public aboutPageName = CONFIG.ABOUT_PAGE_NAME;
+
   constructor(private http: HttpClient) { }  // Implement a method to get the private deals
 
   getEntry(entryName) {
@@ -25,6 +27,16 @@ export class EntryFinderService {
   getMainPage() {
     return this.http
       .get(this.urlGetEntry + "/" + this.mainPageName//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getAboutPage() {
+    return this.http
+      .get(this.urlGetEntry + "/" + this.aboutPageName//, 
       //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(

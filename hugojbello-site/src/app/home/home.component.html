@@ -1,10 +1,6 @@
+<!--
 <div class="starter-template">
   <div *ngIf="entryDTO">
-   <!-- 
-     <h1>{{entryDTO.title}}</h1> 
-    <p class="lead">{{entryName}}</p>!
-    <p>{{formatDate(entryDTO.created_at)}}</p>
-    !-->
     <p><a class="nav-link" routerLink="/edit/{{entryDTO.name}}" *ngIf="authService.authenticated" routerLinkActive="active">    <fa name="cog" animation="spin"></fa></a></p>
     <p>   
     </p>
@@ -13,4 +9,31 @@
 
 <div *ngIf="entryDTO" class="site-content container">
   <div [innerHTML]="contentHtml"></div>
+</div>
+!-->
+
+<div *ngFor="let entry of entryList">
+
+  <div class="card w-75 card-outline-primary mb-3">
+    <div class="card-block" style="padding: 20px;">
+      <h1 class="card-title">{{entry.title}}</h1>
+      <h6 class="card-subtitle mb-2 text-muted">{{timeSince(entry.created_at)}}</h6>
+      <span style="opacity:0.5"><fa name="quote-left" class="text-quote"></fa></span>
+      <div class="card-text" style="padding: 10px;">
+        <div Markdown>
+          {{cutEntryText(entry.content)}}
+        </div>
+
+        <div style="text-align: right;opacity:0.5;">
+            <fa name="ellipsis-h" class="text-quote"></fa>
+            <fa name="quote-right" class="text-quote"></fa>
+        </div>
+      </div>
+      <a routerLink="/entry/{{entry.name}}" routerLinkActive="active">
+        <div class="btn btn-primary btn-lg btn-block">Continue reading</div>
+      </a>
+
+    </div>
+  </div>
+  <br>
 </div>

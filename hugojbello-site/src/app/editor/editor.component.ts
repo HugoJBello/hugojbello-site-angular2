@@ -102,6 +102,7 @@ export class EditorComponent implements OnInit {
          this.title = this.entryDTO.title; 
          this.text = this.entryDTO.content;
          this.categories = this.categoriesFromArray(this.entryDTO.categories);
+         this.hidden = this.entryDTO.hidden;
         }
       }
       );

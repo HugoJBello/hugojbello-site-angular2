@@ -8,6 +8,7 @@ import { EditorComponent } from './editor/editor.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryComponent } from './category/category.component';
 import { FilesComponent } from "./files/files.component";
+import { AboutComponent } from './about/about.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -22,6 +23,10 @@ const routes:  Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'entries',

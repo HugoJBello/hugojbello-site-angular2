@@ -1,0 +1,48 @@
+
+              
+<!--Card-->
+<div class="card card-outline-primary" style="width: 20rem;">
+
+  <!--Card image-->
+  <div class="view gradient-card-header blue-gradient">
+    <img class="img-fluid" src="https://avatars1.githubusercontent.com/u/18718281?s=400&u=8e32c27e69f178b34f43492c51bf5e4133d0d6e4&v=4" class="img-fluid" alt="">
+    <a href="#">
+      <div class="mask"></div>
+  </a>
+  </div>
+
+  <!--Card content-->
+  <div class="card-body">
+      <!--Title-->
+      <h4 class="card-title">Hugo J. Bello</h4>
+      <!--Text-->
+      <p class="card-text">Full-stack software developer. Ph. D. in Complex Systems. Python, Java and Javascript enthusiast.</p>
+      
+      <div style="text-align: center;">
+          <a href="https://github.com/HugoJBello">
+            <fa name="github-square" style="font-size:30px;"></fa></a>
+            &nbsp;&nbsp;
+          <a href="https://www.linkedin.com/in/hugo-j-bello-5b4650120/">
+              <fa name="linkedin" style="font-size:30px;"></fa></a>
+      </div>      
+  </div>
+
+</div>      
+
+<div class="starter-template">
+  <div *ngIf="entryDTO">
+   <!-- 
+     <h1>{{entryDTO.title}}</h1> 
+    <p class="lead">{{entryName}}</p>!
+    <p>{{formatDate(entryDTO.created_at)}}</p>
+    !-->
+    <p><a class="nav-link" routerLink="/edit/{{entryDTO.name}}" *ngIf="authService.authenticated" routerLinkActive="active">    <fa name="cog" animation="spin"></fa></a></p>
+    <p>   
+    </p>
+  </div>
+</div>
+
+
+<div *ngIf="entryDTO" class="site-content container">
+  <div [innerHTML]="contentHtml"></div>
+</div>

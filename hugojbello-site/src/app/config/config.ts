@@ -7,10 +7,11 @@ interface Config {
   URL_BASE:string;
   URL_BACKEND:string;
   MAIN_PAGE_NAME:string;
+  ABOUT_PAGE_NAME:string;
 
 }
-var prod:boolean = false;
-var useLocalhost:boolean = true;
+var prod:boolean = true;
+var useLocalhost:boolean = false;
 
 var port:string;
 if (prod) {
@@ -38,6 +39,7 @@ export var CONFIG: Config = {
   AUDIENCE: 'https://cam-viewer-hjbello.eu.auth0.com/userinfo', // e.g., http://localhost:3001
   REDIRECT: urlBase + ':' + port + '/callback',
   SCOPE: 'openid profile email',
-  MAIN_PAGE_NAME:"main_page"
+  MAIN_PAGE_NAME:"main_page",
+  ABOUT_PAGE_NAME:"about_page"
 
 };

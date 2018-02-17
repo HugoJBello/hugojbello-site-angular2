@@ -1,0 +1,14 @@
+.magin-text{
+    box-sizing: border-box;
+    padding: 10px;
+}
+:host ::ng-deep img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+ }
+
+ .textQuote{
+    opacity: 0.5;
+    font-size:20px;
+ }
