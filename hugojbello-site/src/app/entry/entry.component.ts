@@ -8,7 +8,7 @@ import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.css']
+  styleUrls: ['./entry.component.scss']
 })
 export class EntryComponent implements OnInit, OnDestroy {
   entryName: string;

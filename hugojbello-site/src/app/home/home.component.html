@@ -14,7 +14,7 @@
 
 <div *ngFor="let entry of entryList">
 
-  <div class="card w-75 card-outline-primary mb-3">
+  <div class="card card-quote card-outline-primary mb-3">
     <div class="card-block" style="padding: 20px;">
       <h1 class="card-title">{{entry.title}}</h1>
       <h6 class="card-subtitle mb-2 text-muted">{{timeSince(entry.created_at)}}</h6>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <a routerLink="/entry/{{entry.name}}" routerLinkActive="active">
-        <div class="btn btn-primary btn-lg btn-block">Continue reading</div>
+        <div class="btn btn-primary btn-lg btn-block" i18n>Continue reading</div>
       </a>
 
     </div>

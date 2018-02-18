@@ -2,7 +2,7 @@
   <table>
     <tbody>
       <tr>
-        <td>
+        <td> i18n
           title:
         </td>
         <td>
@@ -10,7 +10,7 @@
         </td>
       </tr>
       <tr>
-        <td>
+        <td i18n>
             categories:
           </td>
           <td>
@@ -20,7 +20,7 @@
     </tbody>
   </table>
   <br>
-  <input type="checkbox" [checked]="hidden" (change)="onChangeHidden()" /> Hidden entry
+  <input type="checkbox" [checked]="hidden" (change)="onChangeHidden()" /> <span i18n>Hidden entry</span>
   <br>
   <br>     
   <input type="submit" class="btn btn-primary" (click)="onPostButton()" value="Post" />
@@ -30,7 +30,7 @@
   <br>
 
   <div *ngIf="entryDTO">
-      <input type="submit" (click)="onDeleteButton()" value="Delete entry" />
+      <input type="submit" (click)="onDeleteButton()" value="Delete entry" i18n/>
   </div>
   
 

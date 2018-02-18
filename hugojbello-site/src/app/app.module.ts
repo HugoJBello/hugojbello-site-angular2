@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -76,7 +76,8 @@ import { MarkdownModule } from 'angular2-markdown';
     FileUploaderService,
     EntryEditorService,
     UtilsDateService,
-    CategoriesService],
+    CategoriesService,
+    { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,11 @@
+.ugly-color { background: olive; color: white;}
+:host ::ng-deep img {
+    @media (min-width: 750px){
+        width: 40%;
+    }
+    @media (max-width: 750px){
+        width: 90%;
+    }
+    display: block;
+    margin: 0 auto;
+ }

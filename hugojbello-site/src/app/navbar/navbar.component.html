@@ -7,28 +7,28 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/home" routerLinkActive="active" i18n>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/entries" routerLinkActive="active">Entries</a>
+        <a class="nav-link" routerLink="/entries" routerLinkActive="active" i18n>Entries</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/categories" routerLinkActive="active">Tags</a>
+        <a class="nav-link" routerLink="/categories" routerLinkActive="active" i18n>Tags</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        <a class="nav-link" routerLink="/about" routerLinkActive="active" i18n>About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/admin" *ngIf="authService.authenticated" routerLinkActive="active">Admin</a>
+        <a class="nav-link" routerLink="/admin" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Admin</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/editor" *ngIf="authService.authenticated" routerLinkActive="active">Editor</a>
+        <a class="nav-link" routerLink="/editor" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Editor</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/files" *ngIf="authService.authenticated" routerLinkActive="active">Files</a>
+        <a class="nav-link" routerLink="/files" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Files</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" routerLink="/upload" *ngIf="authService.authenticated" routerLinkActive="active">Upload file</a>
+          <a class="nav-link" routerLink="/upload" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Upload file</a>
         </li>
       <!--
       <li class="nav-item dropdown">
