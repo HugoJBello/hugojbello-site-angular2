@@ -12,7 +12,7 @@ interface Config {
 }
 var prod:boolean = true;
 var useLocalhost:boolean = false;
-var spanishVersion:boolean = true;
+var spanishVersion:boolean = false;
 
 var port:string;
 
