@@ -5,7 +5,7 @@
 
 <div class="list-group" *ngIf="entryList">
   <div *ngFor="let entry of entryList">
-    <a class="list-group-item list-group-item-action flex-column align-items-start" routerLink="/entry/{{entry.name}}" routerLinkActive="active">
+    <a class="list-group-item list-group-item-action flex-column align-items-start background-light-gray" routerLink="/entry/{{entry.name}}" routerLinkActive="active">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{entry.title}}</h5>
         <small>{{timeSince(entry.created_at)}}</small>
@@ -20,5 +20,6 @@
         </mat-chip-list>
       </p>
     </a>
+    <br>
   </div>
 </div>
