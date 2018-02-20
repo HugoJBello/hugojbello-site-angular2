@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { EntryFinderService } from '../entry-finder.service';
 import { AuthService } from '../auth/auth.service';
 import { EntryDTO } from '../DTO/entryDTO';
 import { Subscription } from 'rxjs/Subscription';
 import { UtilsDateService } from '../utils-date.service';
+import { CONFIG } from '../config/config';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +18,13 @@ export class HomeComponent implements OnInit {
   entryList: EntryDTO[];
   entryFinderSubscription: Subscription;
   sizeTextLimit:number = 300;
+  blogVersion:boolean=false;
   error:any;
 
   constructor(public entryFinder: EntryFinderService, public utilsDate:UtilsDateService) {}
 
   ngOnInit() {
+    this.blogVersion=CONFIG.BLOG_VERSION;
     this.getMainPage();
     this.getEntries();
   }

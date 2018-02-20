@@ -9,17 +9,18 @@ interface Config {
   MAIN_PAGE_NAME:string;
   ABOUT_PAGE_NAME:string;
   PERSONAL_INFO_PAGE_NAME:string;
+  BLOG_VERSION:boolean
 
 }
-var prod:boolean = true;
+var prod:boolean = false;
 var useLocalhost:boolean = false;
-var spanishVersion:boolean = false;
+var blogVersion:boolean = true;
 
 var port:string;
 
 if (prod) {
   port = "";
-  if(spanishVersion) {
+  if(blogVersion) {
     var urlBase = "https://hjbello-blog-es.firebaseapp.com";
   } else {
     var urlBase = "https://hjbello-site.firebaseapp.com"; 
@@ -33,12 +34,13 @@ if (prod) {
 if (useLocalhost) {
   var urlBackend="http://localhost:8080";
 } else {
-  if (spanishVersion) {
+  if (blogVersion) {
     var urlBackend = "https://hjbello-blog-es-hjbello-db.193b.starter-ca-central-1.openshiftapps.com";
   } else {
     var urlBackend = "https://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com"; // 'https://hjbello-site.herokuapp.com'
   }
 }
+
 
 export var CONFIG: Config = {
   CLIENT_ID: 'YTP9te890uUMscjE2sbA_IE51ztOMWNB',
@@ -50,6 +52,7 @@ export var CONFIG: Config = {
   SCOPE: 'openid profile email',
   MAIN_PAGE_NAME:"main_page",
   ABOUT_PAGE_NAME:"about_page",
-  PERSONAL_INFO_PAGE_NAME:"personal_info"
+  PERSONAL_INFO_PAGE_NAME:"personal_info",
+  BLOG_VERSION:blogVersion
 
 };

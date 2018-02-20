@@ -30,7 +30,8 @@
         </div>
       </div>
       <a routerLink="/entry/{{entry.name}}" routerLinkActive="active">
-        <div class="btn btn-primary btn-lg btn-block" i18n>Continue reading</div>
+        <div *ngIf="!blogVersion" class="btn btn-dark btn-lg btn-block" i18n>Continue reading</div>
+        <div *ngIf="blogVersion" class="btn btn-secondary btn-lg btn-block" i18n>Continue reading</div>
       </a>
 
     </div>

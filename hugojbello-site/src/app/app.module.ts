@@ -33,6 +33,7 @@ import { FilesComponent } from './files/files.component';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { AboutComponent } from './about/about.component';
 import { MarkdownModule } from 'angular2-markdown';
+import { CONFIG } from './config/config';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { MarkdownModule } from 'angular2-markdown';
     EntryEditorService,
     UtilsDateService,
     CategoriesService,
+    { provide: CONFIG, useValue: CONFIG },
     { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
