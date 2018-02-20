@@ -12,14 +12,14 @@ interface Config {
   BLOG_VERSION:boolean
 
 }
-var prod:boolean = false;
+var prod:boolean = true;
 var useLocalhost:boolean = false;
-var blogVersion:boolean = true;
+var blogVersion:boolean = false;
 
-var port:string;
+var port:string = "";
 
 if (prod) {
-  port = "";
+  var port = "";
   if(blogVersion) {
     var urlBase = "https://hjbello-blog-es.firebaseapp.com";
   } else {
@@ -27,7 +27,7 @@ if (prod) {
   }
   
 } else {
-  port = "4200";
+   port = "4200";
   var urlBase = "http://localhost";
 }
 

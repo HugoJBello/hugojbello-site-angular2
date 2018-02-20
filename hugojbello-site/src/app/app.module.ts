@@ -78,7 +78,6 @@ import { CONFIG } from './config/config';
     EntryEditorService,
     UtilsDateService,
     CategoriesService,
-    { provide: CONFIG, useValue: CONFIG },
     { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })

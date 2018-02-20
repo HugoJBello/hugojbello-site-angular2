@@ -30,6 +30,18 @@
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="6bb695a169cc637a465bda74f293e0f5cd7dcc92" datatype="html">
+        <source>
+          title:
+        </source>
+        <target>
+          título:
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/editor/editor.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
         <source>About</source>
         <target>Acerca de</target>
