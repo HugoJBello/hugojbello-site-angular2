@@ -14,6 +14,8 @@ export class AboutComponent implements OnInit {
   contentHtml: string;
   entryDTO: EntryDTO;
   entryFinderSubscription: Subscription;
+  personalInfoPage:string;
+  personalInfo:string;
   error:any;
 
   constructor(public entryFinder: EntryFinderService,
@@ -32,6 +34,15 @@ export class AboutComponent implements OnInit {
     this.entryFinderSubscription = this.entryFinder.getAboutPage()
       .subscribe(
       data => {this.entryDTO = data.entry; this.contentHtml=data.contentHtml; console.log(data);},
+      err => error => this.error = err,
+      () => {this.getPersonalInfo()}
+      );
+  }
+
+  getPersonalInfo() {
+    this.entryFinderSubscription = this.entryFinder.getPersonalInfo()
+      .subscribe(
+      data => {this.personalInfo = data.contentHtml; this.personalInfoPage=this.entryFinder.personalInfoPage; console.log(data);},
       err => error => this.error = err,
       () => {}
       );

@@ -85,6 +85,7 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        if (params['id']) this.entryName = params['id'].toString(); 
+       this.title = this.entryName;
        this.getEntry();
  
     });

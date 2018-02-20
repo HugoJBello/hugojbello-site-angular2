@@ -8,6 +8,7 @@ interface Config {
   URL_BACKEND:string;
   MAIN_PAGE_NAME:string;
   ABOUT_PAGE_NAME:string;
+  PERSONAL_INFO_PAGE_NAME:string;
 
 }
 var prod:boolean = true;
@@ -48,6 +49,7 @@ export var CONFIG: Config = {
   REDIRECT: urlBase + ':' + port + '/callback',
   SCOPE: 'openid profile email',
   MAIN_PAGE_NAME:"main_page",
-  ABOUT_PAGE_NAME:"about_page"
+  ABOUT_PAGE_NAME:"about_page",
+  PERSONAL_INFO_PAGE_NAME:"personal_info"
 
 };

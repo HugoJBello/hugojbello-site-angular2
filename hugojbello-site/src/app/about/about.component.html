@@ -16,7 +16,13 @@
       <!--Title-->
       <h4 class="card-title">Hugo J. Bello</h4>
       <!--Text-->
-      <p class="card-text">Full-stack software developer. Ph. D. in Complex Systems. Python, Java and Javascript enthusiast.</p>
+      <div class="card-text">
+        <!--
+        Full-stack software developer. Ph. D. in Complex Systems. Python, Java and Javascript enthusiast.
+        !-->
+        <div [innerHTML]="personalInfo"></div>
+        <a class="nav-link" routerLink="/edit/{{personalInfoPage}}" *ngIf="authService.authenticated" routerLinkActive="active"><fa name="cog" animation="spin"></fa></a>
+        </div>
       
       <div style="text-align: center;">
           <a href="https://github.com/HugoJBello">

@@ -11,6 +11,7 @@ export class EntryFinderService {
   private urlListEntries = this.baseUrl + "/entries/entry_list";
   public mainPageName = CONFIG.MAIN_PAGE_NAME;
   public aboutPageName = CONFIG.ABOUT_PAGE_NAME;
+  public personalInfoPage = CONFIG.PERSONAL_INFO_PAGE_NAME;
 
   constructor(private http: HttpClient) { }  // Implement a method to get the private deals
 
@@ -37,6 +38,15 @@ export class EntryFinderService {
   getAboutPage() {
     return this.http
       .get(this.urlGetEntry + "/" + this.aboutPageName//, 
+      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  getPersonalInfo() {
+    return this.http
+      .get(this.urlGetEntry + "/" + this.personalInfoPage//, 
       //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(
