@@ -6,11 +6,11 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class CategoriesService {
   private baseUrl = CONFIG.URL_BACKEND;
-  private isBlogVersion = CONFIG.BLOG_VERSION;
 
-  private version = (this.isBlogVersion) ? "blog" : "page";
-  private urlEntriesInCat = this.baseUrl + "/categories/entries_in_category/" + this.version;;
-  private urlListCategories = this.baseUrl + "/categories/category_list/" + this.version;;
+  private appId = CONFIG.APP_ID;
+  private urlEntriesInCat = this.baseUrl + "/categories/entries_in_category/" + this.appId;
+  private urlListCategories = this.baseUrl + "/categories/category_list/" + this.appId;
+  
   constructor(private http: HttpClient) { }  // Implement a method to get the private deals
 
   getEntriesInCategory(categoryName) {

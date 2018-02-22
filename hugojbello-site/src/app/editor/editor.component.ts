@@ -60,6 +60,7 @@ export class EditorComponent implements OnInit {
     this.entryDTO.new = this.isNew;
     this.entryDTO.hidden=this.hidden;
     this.entryDTO.blog_version=CONFIG.BLOG_VERSION;
+    this.entryDTO.app_id=CONFIG.APP_ID;
 
     if (this.categories) this.entryDTO.categories=this.categories.split(";");
     console.log(this.entryDTO);

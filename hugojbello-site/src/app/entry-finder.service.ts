@@ -9,11 +9,11 @@ export class EntryFinderService {
   private isBlogVersion = CONFIG.BLOG_VERSION;
   private baseUrl = CONFIG.URL_BACKEND;
 
-  private version = (this.isBlogVersion) ? "blog" : "page";
-  private urlGetEntry = this.baseUrl + "/entries/entry_view/" + this.version;
-  private urlListEntries = this.baseUrl + "/entries/entry_list/" + this.version;
-  private urlListHiddenEntries = this.baseUrl + "/entries/entry_list_hidden/" + this.version;
-  private urlListAllEntries = this.baseUrl + "/entries/entry_list_all/" + this.version;
+  private appId = CONFIG.APP_ID;
+  private urlGetEntry = this.baseUrl + "/entries/entry_view/" + this.appId;
+  private urlListEntries = this.baseUrl + "/entries/entry_list/" + this.appId;
+  private urlListHiddenEntries = this.baseUrl + "/entries/entry_list_hidden/" + this.appId;
+  private urlListAllEntries = this.baseUrl + "/entries/entry_list_all/" + this.appId;
 
   public mainPageName = CONFIG.MAIN_PAGE_NAME;
   public aboutPageName = CONFIG.ABOUT_PAGE_NAME;

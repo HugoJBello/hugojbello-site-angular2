@@ -7,6 +7,7 @@ export class ImageDTO {
   content: string;
   categories:string[];
   edited_by:string;
+  app_id:string;
   version:string;
   hidden:boolean; 
 }

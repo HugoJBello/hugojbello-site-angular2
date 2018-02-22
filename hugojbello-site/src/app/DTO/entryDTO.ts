@@ -11,5 +11,6 @@ export class EntryDTO {
   edited_by:string; 
   hidden:boolean;
   blog_version:boolean; 
+  app_id:string;
   new:string;
 }

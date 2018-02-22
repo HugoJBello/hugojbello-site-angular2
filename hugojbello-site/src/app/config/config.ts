@@ -9,7 +9,8 @@ interface Config {
   MAIN_PAGE_NAME:string;
   ABOUT_PAGE_NAME:string;
   PERSONAL_INFO_PAGE_NAME:string;
-  BLOG_VERSION:boolean
+  BLOG_VERSION:boolean,
+  APP_ID:string
 
 }
 var prod:boolean = false;
@@ -41,9 +42,10 @@ if (useLocalhost) {
   }
 }
 
-var mainPage = (blogVersion) ? "main_page_blog" : "main_page" ;
-var aboutPage = (blogVersion) ? "about_page_blog" : "about_page" ;
-var personalInfo = (blogVersion) ? "personal_info_blog" : "personal_info";
+var appId = (blogVersion) ? "blog": "page";
+var mainPage = "main_entry" + "_" + appId; //(blogVersion) ? "main_page_blog" : "main_page" ;
+var aboutPage = "about_entry" + "_" + appId; //(blogVersion) ? "about_page_blog" : "about_page" ;
+var personalInfo = "main_entry" + "_" + appId; // (blogVersion) ? "personal_info_blog" : "personal_info";
 
 export var CONFIG: Config = {
   CLIENT_ID: 'YTP9te890uUMscjE2sbA_IE51ztOMWNB',
@@ -56,6 +58,7 @@ export var CONFIG: Config = {
   MAIN_PAGE_NAME: mainPage,
   ABOUT_PAGE_NAME: aboutPage,
   PERSONAL_INFO_PAGE_NAME: personalInfo,
-  BLOG_VERSION: blogVersion
+  BLOG_VERSION: blogVersion,
+  APP_ID: appId
 
 };
