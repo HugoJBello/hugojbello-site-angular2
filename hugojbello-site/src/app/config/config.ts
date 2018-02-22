@@ -12,7 +12,7 @@ interface Config {
   BLOG_VERSION:boolean
 
 }
-var prod:boolean = true;
+var prod:boolean = false;
 var useLocalhost:boolean = false;
 var blogVersion:boolean = false;
 
@@ -37,10 +37,13 @@ if (useLocalhost) {
   if (blogVersion) {
     var urlBackend = "https://hjbello-blog-es-hjbello-db.193b.starter-ca-central-1.openshiftapps.com";
   } else {
-    var urlBackend = "https://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com"; // 'https://hjbello-site.herokuapp.com'
+    var urlBackend = 'https://hjbello-site.herokuapp.com' // https://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com"; // 
   }
 }
 
+var mainPage = (blogVersion) ? "main_page_blog" : "main_page" ;
+var aboutPage = (blogVersion) ? "about_page_blog" : "about_page" ;
+var personalInfo = (blogVersion) ? "personal_info_blog" : "personal_info";
 
 export var CONFIG: Config = {
   CLIENT_ID: 'YTP9te890uUMscjE2sbA_IE51ztOMWNB',
@@ -50,9 +53,9 @@ export var CONFIG: Config = {
   AUDIENCE: 'https://cam-viewer-hjbello.eu.auth0.com/userinfo', 
   REDIRECT: urlBase + ':' + port + '/callback',
   SCOPE: 'openid profile email',
-  MAIN_PAGE_NAME:"main_page",
-  ABOUT_PAGE_NAME:"about_page",
-  PERSONAL_INFO_PAGE_NAME:"personal_info",
-  BLOG_VERSION:blogVersion
+  MAIN_PAGE_NAME: mainPage,
+  ABOUT_PAGE_NAME: aboutPage,
+  PERSONAL_INFO_PAGE_NAME: personalInfo,
+  BLOG_VERSION: blogVersion
 
 };

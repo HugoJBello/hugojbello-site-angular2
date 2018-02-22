@@ -8,8 +8,11 @@ import { EntryDTO } from './DTO/entryDTO';
 @Injectable()
 export class EntryEditorService {
   private baseUrl = CONFIG.URL_BACKEND;
+  private isBlogVersion = CONFIG.BLOG_VERSION;
+
+  private version = (this.isBlogVersion) ? "blog" : "page";
   private urlPostEntry = this.baseUrl + "/editor/entry_editor";
-  private urlRemoveEntry = this.baseUrl + "/entries/entry_remove";
+  private urlRemoveEntry = this.baseUrl + "/entries/entry_remove/" + this.version;
 
   constructor(private http: HttpClient) { }
   

@@ -24,13 +24,13 @@
   <br>
   <br>     
   <input type="submit" class="btn btn-primary" (click)="onPostButton()" value="Post" />
-  <br>  
+  <p></p>  
   
   <simplemde [(ngModel)]="text"></simplemde>
   <br>
 
   <div *ngIf="entryDTO">
-      <input type="submit" (click)="onDeleteButton()" value="Delete entry" i18n/>
+      <input class="btn btn-danger" type="submit" (click)="onDeleteButton()" value="Delete entry" i18n/>
   </div>
   
 

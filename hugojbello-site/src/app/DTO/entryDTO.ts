@@ -9,6 +9,7 @@ export class EntryDTO {
   content: string;
   categories:string[];
   edited_by:string; 
-  hidden:boolean; 
+  hidden:boolean;
+  blog_version:boolean; 
   new:string;
 }

@@ -6,9 +6,15 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class EntryFinderService {
+  private isBlogVersion = CONFIG.BLOG_VERSION;
   private baseUrl = CONFIG.URL_BACKEND;
-  private urlGetEntry = this.baseUrl + "/entries/entry_view";
-  private urlListEntries = this.baseUrl + "/entries/entry_list";
+
+  private version = (this.isBlogVersion) ? "blog" : "page";
+  private urlGetEntry = this.baseUrl + "/entries/entry_view/" + this.version;
+  private urlListEntries = this.baseUrl + "/entries/entry_list/" + this.version;
+  private urlListHiddenEntries = this.baseUrl + "/entries/entry_list_hidden/" + this.version;
+  private urlListAllEntries = this.baseUrl + "/entries/entry_list_all/" + this.version;
+
   public mainPageName = CONFIG.MAIN_PAGE_NAME;
   public aboutPageName = CONFIG.ABOUT_PAGE_NAME;
   public personalInfoPage = CONFIG.PERSONAL_INFO_PAGE_NAME;
@@ -58,6 +64,26 @@ export class EntryFinderService {
     return this.http
       .get(this.urlListEntries//, 
       //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      ) 
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  listEntriesHidden() {
+    return this.http
+      .get(this.urlListHiddenEntries, 
+      {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  listEntriesAll() {
+    return this.http
+      .get(this.urlListAllEntries, 
+      {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(
         catchError(this.handleError)

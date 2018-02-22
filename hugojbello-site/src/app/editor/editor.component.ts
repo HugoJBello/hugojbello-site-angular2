@@ -4,6 +4,7 @@ import {EntryEditorService} from '../entry-editor.service';
 import { Subscription } from 'rxjs/Subscription';
 import { EntryFinderService } from '../entry-finder.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CONFIG } from '../config/config'
 
 @Component({
   selector: 'app-editor',
@@ -58,6 +59,7 @@ export class EditorComponent implements OnInit {
     this.entryDTO.content = this.text;
     this.entryDTO.new = this.isNew;
     this.entryDTO.hidden=this.hidden;
+    this.entryDTO.blog_version=CONFIG.BLOG_VERSION;
 
     if (this.categories) this.entryDTO.categories=this.categories.split(";");
     console.log(this.entryDTO);
@@ -72,13 +74,15 @@ export class EditorComponent implements OnInit {
   }
 
   public onDeleteButton(): void { 
-    
-    this.subs = this.entryEditor.removeEntry (this.entryDTO.name).subscribe(
-      data => {console.log(data);},
-      err => {},
-      () => {this.router.navigate(['./entries']);}
-    );
-
+    if (window.confirm('Are sure you want to delete this item ?')){
+      this.subs = this.entryEditor.removeEntry (this.entryDTO.name).subscribe(
+        data => {console.log(data);},
+        err => {},
+        () => {this.router.navigate(['./entries']);}
+      );
+  
+    }
+   
     
   }
 
