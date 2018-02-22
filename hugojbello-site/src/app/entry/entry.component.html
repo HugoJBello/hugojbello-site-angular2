@@ -31,5 +31,7 @@
 !-->
 
 <div *ngIf="entryDTO" class="site-content container">
-    <div [innerHTML]="contentHtml"></div>
+    <div Markdown>
+      {{entryDTO.content}}
+    </div>
 </div>

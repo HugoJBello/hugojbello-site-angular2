@@ -14,7 +14,8 @@ export class FileUploaderService {
   constructor(private http: HttpClient) { }
 
   postFile(fileDTO: FileDTO): Observable<FileDTO> {
-    return this.http.post<FileDTO>(this.urlPostFile, fileDTO)
+    return this.http.post<FileDTO>(this.urlPostFile, fileDTO,
+      {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)})
       .pipe(
       catchError(this.handleError)
       );
@@ -22,8 +23,8 @@ export class FileUploaderService {
 
   getLastFiles(limit:number) {
     return this.http
-      .get(this.urlGetLastFiles + "/" + limit//, 
-      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      .get(this.urlGetLastFiles + "/" + limit, 
+      {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(
         catchError(this.handleError)

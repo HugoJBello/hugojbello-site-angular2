@@ -15,7 +15,8 @@ export class EntryEditorService {
   
   postEntry (entryDTO: EntryDTO): Observable<EntryDTO> {
     console.log(this.baseUrl);
-     return this.http.post<EntryDTO>(this.urlPostEntry, entryDTO)
+     return this.http.post<EntryDTO>(this.urlPostEntry, entryDTO, 
+     {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)})
       .pipe(
         catchError(this.handleError)
       );
@@ -23,8 +24,8 @@ export class EntryEditorService {
 
   removeEntry(entryName) {
     return this.http
-      .get(this.urlRemoveEntry + "/" + entryName//, 
-      //{headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      .get(this.urlRemoveEntry + "/" + entryName, 
+      {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
       .pipe(
         catchError(this.handleError)

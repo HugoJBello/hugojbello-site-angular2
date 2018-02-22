@@ -24,7 +24,7 @@ export class FilesComponent implements OnInit {
   }
 
   getEntryList() {
-    this.urlBase = this.fileUploader.baseUrl+"/files/image/";
+    this.urlBase = this.fileUploader.baseUrl+"/images/image/";
     this.getFilesSubscription = this.fileUploader.getLastFiles(this.limit)
       .subscribe(
       data => {this.filesDTO = data; console.log(data);},
