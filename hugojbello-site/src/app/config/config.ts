@@ -13,9 +13,9 @@ interface Config {
   APP_ID:string
 
 }
-var prod:boolean = false;
+var prod:boolean = true;
 var useLocalhost:boolean = false;
-var blogVersion:boolean = false;
+var blogVersion:boolean = true;
 
 var port:string = "";
 
@@ -36,9 +36,9 @@ if (useLocalhost) {
   var urlBackend="http://localhost:8080";
 } else {
   if (blogVersion) {
-    var urlBackend = "https://hjbello-blog-es-hjbello-db.193b.starter-ca-central-1.openshiftapps.com";
+    var urlBackend = 'https://hjbello-site.herokuapp.com'; //= "https://hjbello-blog-es-hjbello-db.193b.starter-ca-central-1.openshiftapps.com";
   } else {
-    var urlBackend = 'https://hjbello-site.herokuapp.com' // https://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com"; // 
+    var urlBackend = 'https://hjbello-site.herokuapp.com'; // https://hjbello-site-hjbello-site.7e14.starter-us-west-2.openshiftapps.com"; // 
   }
 }
 
