@@ -1,9 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
-import {LOCALE_ID, NgModule } from '@angular/core';
-import { AuthService } from './auth/auth.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
 
 import { CallbackComponent } from './callback.component';
 import { AppComponent } from './app.component';
@@ -12,11 +6,25 @@ import { HomeComponent } from './home/home.component';
 import { EntriesComponent } from './entries/entries.component';
 import { AdminComponent } from './admin/admin.component';
 import { EntryComponent } from './entry/entry.component';
-import { EntryFinderService } from './entry-finder.service';
-import {MatChipsModule} from '@angular/material/chips';
+import { CategoryComponent } from './category/category.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { FilesComponent } from './files/files.component';
+import { AboutComponent } from './about/about.component';
 import { UploadComponent } from './upload/upload.component';
-import { FileUploaderService } from './file-uploader.service';
 import { EditorComponent } from './editor/editor.component';
+
+import { EntryFinderService } from './entry-finder.service';
+import { UtilsDateService } from './utils-date.service';
+import { CategoriesService } from './categories.service';
+import { ColorUtilsService } from './color-utils.service';
+import { FileUploaderService } from './file-uploader.service';
+import { AuthService } from './auth/auth.service';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { MatChipsModule } from '@angular/material/chips';
 import { EntryEditorService } from './entry-editor.service';
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
 import { MatIconModule } from "@angular/material/icon"; 
@@ -25,15 +33,11 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { UtilsDateService } from './utils-date.service';
-import { CategoriesService } from './categories.service';
-import { CategoryComponent } from './category/category.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { FilesComponent } from './files/files.component';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { AboutComponent } from './about/about.component';
 import { MarkdownModule } from 'angular2-markdown';
+
 import { CONFIG } from './config/config';
+import { TagChipComponent } from './tag-chip/tag-chip.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,8 @@ import { CONFIG } from './config/config';
     CategoryComponent,
     CategoriesComponent,
     FilesComponent,
-    AboutComponent
+    AboutComponent,
+    TagChipComponent
     ],
   imports: [
     BrowserModule,
@@ -78,6 +83,7 @@ import { CONFIG } from './config/config';
     EntryEditorService,
     UtilsDateService,
     CategoriesService,
+    ColorUtilsService,
     { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })

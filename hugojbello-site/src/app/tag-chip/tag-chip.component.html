@@ -1,0 +1,7 @@
+<a routerLink="/category/{{tagName}}" routerLinkActive="active">
+  <div class="badge badge-pill badge-secondary border-font" 
+  style="font-size: 105%;"
+  [style.background]="calculateColor(tagName)">
+    {{tagName}}
+  </div>
+</a>

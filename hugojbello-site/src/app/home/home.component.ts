@@ -52,7 +52,11 @@ export class HomeComponent implements OnInit {
   }
 
   cutEntryText(text:string){
-    return text.substring(0,this.sizeTextLimit);
+    if (text){
+       return text.substring(0,this.sizeTextLimit);
+    } else {
+      return "";
+    }
   }
   timeSince(date:Date) {
     return this.utilsDate.timeSince(date);

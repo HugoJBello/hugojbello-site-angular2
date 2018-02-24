@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { EntryDTO } from '../DTO/entryDTO';
 import { CategoryDTO } from '../DTO/categoryDTO';
 import { UtilsDateService } from '../utils-date.service';
+import { ColorUtilsService } from '../color-utils.service';
+
+
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -13,7 +16,8 @@ export class CategoriesComponent implements OnInit {
   categoryList:CategoryDTO[];
   catSubscription: Subscription;
   error:any;
-  constructor( public categoriesService: CategoriesService, public utilsDate:UtilsDateService) { }
+  constructor( public categoriesService: CategoriesService, 
+    public utilsDate:UtilsDateService, public colorUtils:ColorUtilsService) { }
 
   ngOnInit() {
     this.getEntryList();
@@ -30,6 +34,8 @@ getEntryList() {
  timeSince(date:Date) {
    return this.utilsDate.timeSince(date);
 }
-
+ calculateColor(str:string) {
+   return this.colorUtils.stringToColour(str);
+ }
 }
 

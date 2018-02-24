@@ -62,11 +62,14 @@ export class EditorComponent implements OnInit {
     this.entryDTO.blog_version=CONFIG.BLOG_VERSION;
     this.entryDTO.app_id=CONFIG.APP_ID;
 
-    if (this.categories) this.entryDTO.categories=this.categories.split(";");
-    console.log(this.entryDTO);
-
+    var trimmedCategories =[];
+    for (var cat of this.categories.split(";")){
+      trimmedCategories.push(cat.trim());
+    }
+    this.entryDTO.categories=trimmedCategories;
+    
     this.subs = this.entryEditor.postEntry (this.entryDTO).subscribe(
-      data => {console.log(data);},
+      data => {},
       err => {},
       () => {this.router.navigate(['./entry/' + this.entryDTO.name]);}
     );
@@ -77,7 +80,7 @@ export class EditorComponent implements OnInit {
   public onDeleteButton(): void { 
     if (window.confirm('Are sure you want to delete this item ?')){
       this.subs = this.entryEditor.removeEntry (this.entryDTO.name).subscribe(
-        data => {console.log(data);},
+        data => {},
         err => {},
         () => {this.router.navigate(['./entries']);}
       );

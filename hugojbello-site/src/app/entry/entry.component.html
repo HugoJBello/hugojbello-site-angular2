@@ -3,16 +3,10 @@
     <h1>{{entryDTO.title}}</h1>
     <!--<p class="lead">{{entryName}}</p>!-->
     <p>{{formatDate(entryDTO.created_at)}}</p>
-    <p><a class="nav-link" routerLink="/edit/{{entryDTO.name}}" *ngIf="authService.authenticated" routerLinkActive="active">    <fa name="cog" animation="spin"></fa></a></p>
-    <p>
-      <mat-chip-list>
-        <div *ngFor="let cat of entryDTO.categories" >
-          <mat-chip color="primary" [selectable]="selectable">
-              <a routerLink="/category/{{cat}}" routerLinkActive="active">{{cat}}</a>
-          </mat-chip>
-        </div>
-      </mat-chip-list>
-    </p>
+    <span *ngFor="let cat of entryDTO.categories" >
+        <tag-chip [tagName]="cat"></tag-chip>
+    </span> 
+    <p><a class="nav-link" routerLink="/edit/{{entryDTO.name}}" *ngIf="authService.authenticated" routerLinkActive="active">    <fa name="cog" animation="spin"></fa></a></p>     
   </div>
 </div>
 

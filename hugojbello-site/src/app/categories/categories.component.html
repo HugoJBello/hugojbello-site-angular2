@@ -1,10 +1,16 @@
-<div class="list-group" *ngIf="categoryList">
-  <div *ngFor="let category of categoryList">
-    <a routerLink="/category/{{category.name}}" routerLinkActive="active">   
-      <div class="badge badge-pill badge-secondary">
-          {{category.name}}
-      </div>
-        <div><span i18n>last post</span>{{timeSince(category.created_at)}} <span i18n>ago,</span> {{category.number_of_entries}} <span i18n>entries</span></div>
-    </a>
+<div style="width: 100%; text-align: center; " *ngIf="categoryList">
+  <div class="tag-card-outer" *ngFor="let category of categoryList">
+      <div class="card tag-card text-center">
+          <div class="card-block" style="padding:10px;">
+            <h3 class="card-title">
+                <tag-chip [tagName]="category.name"></tag-chip>
+            </h3>
+            <p class="card-text"> {{category.number_of_entries}} <span i18n>entries</span></p>
+            </div>
+            <div class="card-footer text-muted">
+                <span i18n>last post&nbsp;</span>{{timeSince(category.created_at)}} <span i18n>ago,</span>
+            </div>  
+        </div>
   </div>
 </div>
+
