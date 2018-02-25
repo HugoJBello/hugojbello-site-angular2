@@ -3,6 +3,7 @@ import { EntryFinderService } from '../entry-finder.service';
 import { Subscription } from 'rxjs/Subscription';
 import { EntryDTO } from '../DTO/entryDTO';
 import { UtilsDateService } from '../utils-date.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-entries',
@@ -17,11 +18,27 @@ export class EntriesComponent implements OnInit {
   totalItems:number;
   itemsPerPage:number=10;
   error:any;
-  constructor(public entryFinder: EntryFinderService, public utilsDate:UtilsDateService) {}
+
+  constructor(public entryFinder: EntryFinderService, 
+    public authService: AuthService,
+    public utilsDate:UtilsDateService) {}
 
   ngOnInit() {
-       this.getEntryList();
+    this.getEntryList();
   }
+
+  onHidden(){
+    this.getEntryListHidden();
+  }
+
+  onVisible(){
+    this.getEntryList();
+  }
+
+  onAll(){
+    this.getEntryListAll();
+  }
+
   getEntryList() {
     this.entryFinderSubscription = this.entryFinder.listEntries()
       .subscribe(

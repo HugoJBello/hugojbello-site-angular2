@@ -1,3 +1,11 @@
+
+<div *ngIf="authService.authenticated">
+  <input type="submit" class="btn btn-primary" (click)="onHidden()" value="Show hidden only" />
+  <input type="submit" class="btn btn-primary" (click)="onVisible()" value="Show visible only" />
+  <input type="submit" class="btn btn-primary" (click)="onAll()" value="Show all" />
+</div>
+
+<br>
 <div class="list-group" *ngIf="entryListInPage">
   <div *ngFor="let entry of entryListInPage">
     <div class="card">

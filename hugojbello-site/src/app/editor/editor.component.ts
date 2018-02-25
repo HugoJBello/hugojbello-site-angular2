@@ -63,8 +63,10 @@ export class EditorComponent implements OnInit {
     this.entryDTO.app_id=CONFIG.APP_ID;
 
     var trimmedCategories =[];
-    for (var cat of this.categories.split(";")){
-      trimmedCategories.push(cat.trim());
+    if (this.categories){
+      for (var cat of this.categories.split(";")){
+        trimmedCategories.push(cat.trim());
+      }
     }
     this.entryDTO.categories=trimmedCategories;
     
