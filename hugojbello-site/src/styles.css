@@ -20,6 +20,8 @@ body {
 
  }
 
+ a { color: inherit; } 
+
  .background-light-gray{
     background-color: #fbfbfb;
 

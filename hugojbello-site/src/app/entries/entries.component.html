@@ -1,23 +1,23 @@
-<div class="starter-template">
-  <h1 i18n>Entries</h1>
-</div>
-
-
 <div class="list-group" *ngIf="entryListInPage">
   <div *ngFor="let entry of entryListInPage">
-    <a class="list-group-item list-group-item-action flex-column align-items-start background-light-gray" routerLink="/entry/{{entry.name}}" routerLinkActive="active">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{entry.title}}</h5>
+    <div class="card">
+      <div class="d-flex w-100 justify-content-between" style="padding:15px">
+        <h2 class="mb-1" > 
+            <a routerLink="/entry/{{entry.name}}" routerLinkActive="active">
+              {{entry.title}}
+            </a>
+          </h2>
+        <br>
         <small>{{timeSince(entry.created_at)}}</small>
       </div>
-      <div class="mb-1">
+      <div class="card-footer text-muted">
           <div *ngIf="entry.categories">
               <span *ngFor="let cat of entry.categories" >
                   <tag-chip [tagName]="cat"></tag-chip>
               </span> 
           </div>
-        </div>
-    </a>
+        </div> 
+      </div>
     <br>
   </div>
   <ng-container *ngIf="entryList">

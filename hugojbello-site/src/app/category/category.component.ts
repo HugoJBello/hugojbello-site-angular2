@@ -15,16 +15,19 @@ import { UtilsDateService } from '../utils-date.service';
 })
 export class CategoryComponent implements OnInit {
   categoryName: string;
-  entryList: EntryDTO[];
-  catSubscription: Subscription;
+  entryList:EntryDTO[];
+  entryListInPage:EntryDTO[];
+  categoryFinderSubscription: Subscription;
+  pageNow:number=1;
+  totalItems:number;
+  itemsPerPage:number=10;
   error:any;
-  private sub: any;
 
   constructor(private route: ActivatedRoute, public categoriesService: CategoriesService,  public utilsDate:UtilsDateService) {}
 
   
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.categoryFinderSubscription = this.route.params.subscribe(params => {
        this.categoryName = params['id'].toString(); 
        this.getEntriesinCategory();
  
@@ -35,20 +38,31 @@ export class CategoryComponent implements OnInit {
     this.getEntriesinCategory();
   }
   getEntriesinCategory() {
-    this.catSubscription = this.categoriesService.getEntriesInCategory(this.categoryName)
+    this.categoryFinderSubscription = this.categoriesService.getEntriesInCategory(this.categoryName)
       .subscribe(
       data => {this.entryList = data; console.log(data);},
       err => error => this.error = err,
-      () => { console.log(this.entryList)}
+      () => {this.updateList(); this.totalItems= this.entryList.length; }
       );
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.categoryFinderSubscription.unsubscribe();
   }
-
 
   timeSince(date:Date) {
     return this.utilsDate.timeSince(date);
+}
+
+updateList(){
+  var firstEntry=(this.pageNow -1)*this.itemsPerPage;
+  var lastEntry= firstEntry + this.itemsPerPage;//(this.pageNow -1)*(this.itemsPerPage+1);
+  console.log("(" + firstEntry + " " + lastEntry + ")");
+  this.entryListInPage = this.entryList.slice(firstEntry, lastEntry);
+
+}
+pageChanged(page){
+this.pageNow = page;
+this.updateList();
 }
 }

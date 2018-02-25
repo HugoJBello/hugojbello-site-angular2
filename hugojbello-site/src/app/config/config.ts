@@ -10,12 +10,13 @@ interface Config {
   ABOUT_PAGE_NAME:string;
   PERSONAL_INFO_PAGE_NAME:string;
   BLOG_VERSION:boolean,
-  APP_ID:string
+  APP_ID:string,
+  APP_NAME:string
 
 }
-var prod:boolean = false;
+var prod:boolean = true;
 var useLocalhost:boolean = false;
-var blogVersion:boolean = false;
+var blogVersion:boolean = true;
 
 var port:string = "";
 
@@ -46,10 +47,12 @@ var appId = (blogVersion) ? "blog": "page";
 var mainPage = "main_entry" + "_" + appId; //(blogVersion) ? "main_page_blog" : "main_page" ;
 var aboutPage = "about_entry" + "_" + appId; //(blogVersion) ? "about_page_blog" : "about_page" ;
 var personalInfo = "main_entry" + "_" + appId; // (blogVersion) ? "personal_info_blog" : "personal_info";
+var appName = (blogVersion) ? "Hugo J. Bello": "Hugo J. Bello";
 
 export var CONFIG: Config = {
   CLIENT_ID: 'YTP9te890uUMscjE2sbA_IE51ztOMWNB',
   CLIENT_DOMAIN: 'cam-viewer-hjbello.eu.auth0.com', // e.g., you.auth0.com
+  APP_NAME: appName,
   URL_BASE: urlBase,
   URL_BACKEND: urlBackend,
   AUDIENCE: 'https://cam-viewer-hjbello.eu.auth0.com/userinfo', 

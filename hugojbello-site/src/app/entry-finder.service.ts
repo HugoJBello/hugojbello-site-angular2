@@ -12,8 +12,8 @@ export class EntryFinderService {
   private appId = CONFIG.APP_ID;
   private urlGetEntry = this.baseUrl + "/entries/entry_view/" + this.appId;
   private urlListEntries = this.baseUrl + "/entries/entry_list/" + this.appId;
-  private urlListHiddenEntries = this.baseUrl + "/entries/entry_list_hidden/" + this.appId;
-  private urlListAllEntries = this.baseUrl + "/entries/entry_list_all/" + this.appId;
+  private urlListHiddenEntries = this.baseUrl + "/entries_hidden/entry_list_hidden/" + this.appId;
+  private urlListAllEntries = this.baseUrl + "/entries_hidden/entry_list_all/" + this.appId;
 
   public mainPageName = CONFIG.MAIN_PAGE_NAME;
   public aboutPageName = CONFIG.ABOUT_PAGE_NAME;

@@ -31,6 +31,25 @@ export class EntriesComponent implements OnInit {
       );
   }
 
+  getEntryListHidden() {
+    this.entryFinderSubscription = this.entryFinder.listEntriesHidden()
+      .subscribe(
+      data => {this.entryList = data},
+      err => error => this.error = err,
+      () => { this.updateList(); this.totalItems= this.entryList.length; console.log(this.entryList);console.log(this.totalItems);}
+      );
+  }
+
+  getEntryListAll() {
+    this.entryFinderSubscription = this.entryFinder.listEntriesAll()
+      .subscribe(
+      data => {this.entryList = data},
+      err => error => this.error = err,
+      () => { this.updateList(); this.totalItems= this.entryList.length; console.log(this.entryList);console.log(this.totalItems);}
+      );
+  }
+
+
   timeSince(date:Date) {
       return this.utilsDate.timeSince(date);
   }
