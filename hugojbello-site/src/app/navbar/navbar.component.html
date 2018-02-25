@@ -27,12 +27,6 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/editor" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Editor</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/files" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Files</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" routerLink="/upload" *ngIf="authService.authenticated" routerLinkActive="active" i18n>Upload file</a>
-        </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <a  class="btn btn-outline-success my-2 my-sm-0" *ngIf="!authService.authenticated" (click)="authService.login()">Admin</a>

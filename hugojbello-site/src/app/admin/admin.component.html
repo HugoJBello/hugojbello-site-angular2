@@ -1,4 +1,29 @@
-<div class="starter-template">
-  <h1 i18n>Admin page</h1>
-  <p class="lead">Admin here</p>
-</div>
+<div class="">
+
+  <div class="card" style="width: 250px">
+    <div class="card-block" style="padding:10px;">
+      <h3 class="card-title">
+        Edition
+      </h3>
+      <div class="card-text">
+        <a routerLink="/editor" routerLinkActive="active">
+          <p>Create a new article
+            <fa name="edit"></fa>
+          </p>
+        </a>
+
+        <a routerLink="/upload" routerLinkActive="active">
+          <p>Upload a file
+            <fa name="upload"></fa>
+          </p>
+        </a>
+
+        <a routerLink="/files" routerLinkActive="active">
+          <p>Check uploaded files
+            <fa name="file"></fa>
+          </p>
+        </a>
+      </div>
+    </div>
+
+  </div>

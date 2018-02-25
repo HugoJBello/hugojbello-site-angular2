@@ -16,7 +16,7 @@ interface Config {
 }
 var prod:boolean = true;
 var useLocalhost:boolean = false;
-var blogVersion:boolean = false;
+var blogVersion:boolean = true;
 
 var port:string = "";
 
