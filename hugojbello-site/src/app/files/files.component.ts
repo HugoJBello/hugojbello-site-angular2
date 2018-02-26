@@ -43,6 +43,7 @@ export class FilesComponent implements OnInit {
     }
 
     delete(filename){
+      if (window.confirm('Are sure you want to delete this item ?')){
       this.getFilesSubscription = this.fileUploader.fileRemove(filename)
       .subscribe(
       data => {console.log(data)},
@@ -50,5 +51,6 @@ export class FilesComponent implements OnInit {
       () => { this.getListFilesPaged();}
       );
   }
+}
        
 }

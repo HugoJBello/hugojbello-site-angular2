@@ -14,7 +14,7 @@ interface Config {
   APP_NAME:string
 
 }
-var prod:boolean = false;
+var prod:boolean = true;
 var useLocalhost:boolean = false;
 var blogVersion:boolean = false;
 
