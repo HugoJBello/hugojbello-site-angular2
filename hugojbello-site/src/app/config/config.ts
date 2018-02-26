@@ -14,9 +14,9 @@ interface Config {
   APP_NAME:string
 
 }
-var prod:boolean = true;
+var prod:boolean = false;
 var useLocalhost:boolean = false;
-var blogVersion:boolean = true;
+var blogVersion:boolean = false;
 
 var port:string = "";
 

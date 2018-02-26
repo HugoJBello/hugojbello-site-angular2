@@ -22,22 +22,12 @@ a:hover {
     color: black;
 }
 
-.previous {
-    background-color:  #4CAF50;
-    color: black;
+.tag-card{
+    width: 20rem; 
+    border-color: #333;
 }
 
-.next {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.round {
-    border-radius: 50%;
-}
-
-.buttonsBlock{
-    display: inline-block;
-    float: none;
-    margin-left: 40%;
+.tag-card-outer{
+    display: inline-block; 
+    padding:10px;
 }

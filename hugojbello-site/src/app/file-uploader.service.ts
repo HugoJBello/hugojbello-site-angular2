@@ -10,7 +10,11 @@ import { FileDTO } from './DTO/fileDTO';
 export class FileUploaderService {
   public baseUrl = CONFIG.URL_BACKEND;
   private urlPostFile = this.baseUrl + "/files/upload";
+  private urlRemoveFile = this.baseUrl + "/files/file_remove";
+
   private urlGetLastFiles = this.baseUrl + "/files/images";
+  private urlGetImagesPaged = this.baseUrl + "/images/images_list_page";
+
   constructor(private http: HttpClient) { }
 
   postFile(fileDTO: FileDTO): Observable<FileDTO> {
@@ -21,11 +25,28 @@ export class FileUploaderService {
       );
   }
 
+  fileRemove(filename:string) {
+    return this.http
+      .get(this.urlRemoveFile + "/" + filename, 
+      {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
+      )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   getLastFiles(limit:number) {
     return this.http
       .get(this.urlGetLastFiles + "/" + limit, 
       {headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)}
       )
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getImagesListPage(page:number) {
+    return this.http
+      .get(this.urlGetImagesPaged + "/" + page)
       .pipe(
         catchError(this.handleError)
       );

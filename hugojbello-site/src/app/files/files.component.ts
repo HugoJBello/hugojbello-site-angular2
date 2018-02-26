@@ -10,7 +10,11 @@ import { CONFIG } from '../config/config';
   styleUrls: ['./files.component.css']
 })
 export class FilesComponent implements OnInit {
-  limit:number = 10;
+  pageNow:number = 1;
+  pagesTotal:number = 1;
+  totalItems:number;
+  itemsPerPage:number=10;
+
   getFilesSubscription: Subscription;
   filesDTO : FileDTO[];
   error : any;
@@ -20,17 +24,31 @@ export class FilesComponent implements OnInit {
   constructor(public fileUploader:FileUploaderService) { }
 
   ngOnInit() {
-    this.getEntryList();
+    this.getListFilesPaged();
   }
 
-  getEntryList() {
+  getListFilesPaged() {
     this.urlBase = this.fileUploader.baseUrl+"/images/image/";
-    this.getFilesSubscription = this.fileUploader.getLastFiles(this.limit)
+    this.getFilesSubscription = this.fileUploader.getImagesListPage(this.pageNow)
       .subscribe(
-      data => {this.filesDTO = data; console.log(data);},
+      data => {this.filesDTO = data.files; this.pagesTotal=data.pages; this.totalItems=data.totalItems; console.log(data);},
       err => error => this.error = err,
-      () => { }
+      () => {console.log(this.totalItems + " " + this.pageNow + " " + this.itemsPerPage) }
       );
   }
 
+  pageChanged(page){
+    this.pageNow = page;
+    this.getListFilesPaged();
+    }
+
+    delete(filename){
+      this.getFilesSubscription = this.fileUploader.fileRemove(filename)
+      .subscribe(
+      data => {console.log(data)},
+      err => error => this.error = err,
+      () => { this.getListFilesPaged();}
+      );
+  }
+       
 }

@@ -1,9 +1,13 @@
-<div *ngFor="let entry of filesDTO">
-  <div class="card" style="width: 20rem;">
+
+
+
+<div class="tag-card-outer" *ngFor="let entry of filesDTO">
+  <div class="card tag-card" style="width: 20rem;">
     <div class="block imgContainer">
 
       <div class="card-header">
         <span class="card-title">{{entry.filename}}</span>
+        <button (click)="delete(entry.filename)"><fa name="trash"></fa></button>
       </div>
 
       <div class="card-body">
@@ -14,3 +18,11 @@
   </div>
   <br>
 </div>
+
+<ng-container *ngIf="filesDTO">
+  <div *ngFor="let item of filesDTO | 
+  paginate: { itemsPerPage: itemsPerPage, currentPage: 
+    pageNow,totalItems:totalItems  }">
+  </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</ng-container>
