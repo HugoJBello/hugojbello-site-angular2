@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, Input} from '@angular/core';
 import {ReplaySubject} from "rxjs/ReplaySubject";
 import {Observable} from "rxjs/Observable";
 import { Subscription } from 'rxjs/Subscription';
@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class UploadComponent implements OnInit {
   fileToUpload: File = null;
+  @Output() filename:string;
+  @Input() fromDialog;
+  message:string ="";
   fileDTO : FileDTO = new FileDTO();
   getFileSubscription: Subscription;
   uploadFileSubscription: Subscription;
@@ -24,7 +27,8 @@ export class UploadComponent implements OnInit {
   }
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    this.fileDTO.filename=this.fileToUpload.name;
+    this.filename=files.item(0).name;
+    this.fileDTO.filename=this.filename;
     console.log(this.fileToUpload);
     
     this.getFileSubscription = this.readFile(this.fileToUpload).subscribe(params => {
@@ -52,8 +56,13 @@ public readFile(fileToRead: File): Observable<MSBaseReader>{
     data => {},
     err => {},
     () => {
-      this.router.navigate(['./files']);
-    }
+      if (this.fromDialog) {
+        this.message="uploaded succesfully!";
+      }
+      else {
+        this.router.navigate(['./files'])};
+      }
+    
   );
 }
 

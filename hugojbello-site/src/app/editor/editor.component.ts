@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { EntryFinderService } from '../entry-finder.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CONFIG } from '../config/config'
+import { MatDialog } from '@angular/material';
+import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component';
 
 @Component({
   selector: 'app-editor',
@@ -27,7 +29,8 @@ export class EditorComponent implements OnInit {
   private sub: any;
 
   constructor( public entryEditor: EntryEditorService, private router:Router,
-    private route: ActivatedRoute, public entryFinder: EntryFinderService) { }
+    private route: ActivatedRoute, public entryFinder: EntryFinderService,
+    public dialog: MatDialog) { }
 
 
   ngOnChange(){
@@ -86,12 +89,19 @@ export class EditorComponent implements OnInit {
         err => {},
         () => {this.router.navigate(['./entries']);}
       );
-  
-    }
-   
-    
+    }    
   }
+  public onUploadImage(): void {  
+    let dialogRef = this.dialog.open(DialogUploadComponent, {
+      width: '700px'
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
+  
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        if (params['id']) this.entryName = params['id'].toString(); 

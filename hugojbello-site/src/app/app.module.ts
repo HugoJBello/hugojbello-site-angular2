@@ -35,9 +35,11 @@ import { MatInputModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { MarkdownModule } from 'angular2-markdown';
-
+import { MatDialogModule } from '@angular/material';
 import { CONFIG } from './config/config';
 import { TagChipComponent } from './tag-chip/tag-chip.component';
+import { DialogUploadComponent } from './dialog-upload/dialog-upload.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { TagChipComponent } from './tag-chip/tag-chip.component';
     CategoriesComponent,
     FilesComponent,
     AboutComponent,
-    TagChipComponent
+    TagChipComponent,
+    DialogUploadComponent
     ],
   imports: [
     BrowserModule,
@@ -68,6 +71,9 @@ import { TagChipComponent } from './tag-chip/tag-chip.component';
     MatFormFieldModule,
     MatInputModule,
     NgxPaginationModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MarkdownModule.forRoot(),
     SimplemdeModule.forRoot({
       provide: SIMPLEMDE_CONFIG,
@@ -85,6 +91,9 @@ import { TagChipComponent } from './tag-chip/tag-chip.component';
     CategoriesService,
     ColorUtilsService,
     { provide: LOCALE_ID, useValue: 'es' }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogUploadComponent,
+  ]
 })
 export class AppModule { }
