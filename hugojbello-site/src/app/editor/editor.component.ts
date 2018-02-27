@@ -34,12 +34,10 @@ export class EditorComponent implements OnInit {
 
 
   ngOnChange(){
-    console.log(this.text);
-  }
+   }
   onChangeHidden(){
     this.hidden=!this.hidden
-    console.log(this.hidden);
-  }
+   }
 
   titleToFilename(title){
     var name = '';
@@ -116,8 +114,7 @@ export class EditorComponent implements OnInit {
       data => {this.entryDTO = data.entry;console.log(data);},
       err => error => this.error = err,
       () => {
-        console.log(this.entryDTO);
-        if(this.entryDTO) {
+         if(this.entryDTO) {
          if (this.entryDTO.name) this.isNew="false";
        
          this.title = this.entryDTO.title; 

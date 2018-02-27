@@ -20,12 +20,12 @@
     </tbody>
   </table>
   <br>
-  <input type="checkbox" [checked]="hidden" (change)="onChangeHidden()" /> <span i18n>Hidden entry</span>
+  <input type="checkbox" [checked]="hidden" (change)="onChangeHidden()" /> <span i18n>Hidden entry</span> 
   <br>
-  <input type="submit" class="btn btn-primary" (click)="onUploadImage()" value="Upload Image" />
+  
 
   <br>     
-  <input type="submit" class="btn btn-primary" (click)="onPostButton()" value="Post" />
+  <input type="submit" class="btn btn-primary" (click)="onPostButton()" value="Post" /> <a (click)="onUploadImage()"> Upload Image <fa name="upload"></fa></a>
   <p></p>  
   
   <simplemde [(ngModel)]="text"></simplemde>
