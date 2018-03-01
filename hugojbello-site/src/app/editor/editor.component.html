@@ -25,7 +25,9 @@
   
 
   <br>     
-  <input type="submit" class="btn btn-primary" (click)="onPostButton()" value="Post" /> <a (click)="onUploadImage()"> Upload Image <fa name="upload"></fa></a>
+  <input type="submit" class="btn btn-primary" (click)="onPostButton()" value="Post" /> 
+  <a (click)="onUploadImage()"> Upload Image <fa name="upload"></fa></a>
+  <a (click)="onSelectImage()"> Select Image <fa name="check"></fa> </a>
   <p></p>  
   
   <simplemde [(ngModel)]="text"></simplemde>

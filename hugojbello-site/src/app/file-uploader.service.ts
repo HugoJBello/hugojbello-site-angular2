@@ -44,9 +44,9 @@ export class FileUploaderService {
       );
   }
 
-  getImagesListPage(page:number) {
+  getImagesListPage(page:number,perPage:number) {
     return this.http
-      .get(this.urlGetImagesPaged + "/" + page)
+      .get(this.urlGetImagesPaged + "/" + page+ "/" + perPage)
       .pipe(
         catchError(this.handleError)
       );

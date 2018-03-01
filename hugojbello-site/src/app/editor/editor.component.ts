@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CONFIG } from '../config/config'
 import { MatDialog } from '@angular/material';
 import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component';
+import { DialogFileSelectorComponent } from '../dialog-file-selector/dialog-file-selector.component';
 
 @Component({
   selector: 'app-editor',
@@ -92,6 +93,15 @@ export class EditorComponent implements OnInit {
   public onUploadImage(): void {  
     let dialogRef = this.dialog.open(DialogUploadComponent, {
       width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
+  public onSelectImage(): void {  
+    let dialogRef = this.dialog.open(DialogFileSelectorComponent, {
     });
 
     dialogRef.afterClosed().subscribe(result => {

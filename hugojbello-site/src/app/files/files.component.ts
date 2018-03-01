@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, Input,EventEmitter } from '@angular/core';
 import { FileUploaderService } from '../file-uploader.service';
 import { Subscription } from 'rxjs/Subscription';
 import { FileDTO } from '../DTO/fileDTO';
 import { CONFIG } from '../config/config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-files',
@@ -13,13 +14,18 @@ export class FilesComponent implements OnInit {
   pageNow:number = 1;
   pagesTotal:number = 1;
   totalItems:number;
-  itemsPerPage:number=10;
+  @Input() itemsPerPage:number=10;
 
   getFilesSubscription: Subscription;
   filesDTO : FileDTO[];
   error : any;
   uploadFileSubscription: Subscription;
   urlBase: string;
+
+  @Input() fromDialog:boolean = false;
+  @Input() redirectTo:string="";
+  @Output() uploadedFile =new EventEmitter<string>();
+  
 
   constructor(public fileUploader:FileUploaderService) { }
 
@@ -29,7 +35,7 @@ export class FilesComponent implements OnInit {
 
   getListFilesPaged() {
     this.urlBase = this.fileUploader.baseUrl+"/images/image/";
-    this.getFilesSubscription = this.fileUploader.getImagesListPage(this.pageNow)
+    this.getFilesSubscription = this.fileUploader.getImagesListPage(this.pageNow,this.itemsPerPage)
       .subscribe(
       data => {this.filesDTO = data.files; this.pagesTotal=data.pages; this.totalItems=data.totalItems; console.log(data);},
       err => error => this.error = err,
@@ -40,6 +46,10 @@ export class FilesComponent implements OnInit {
   pageChanged(page){
     this.pageNow = page;
     this.getListFilesPaged();
+    }
+
+    fileSelected(filename){
+      this.uploadedFile.emit(filename);
     }
 
     delete(filename){

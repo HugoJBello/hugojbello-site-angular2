@@ -7,11 +7,20 @@
 
       <div class="card-header">
         <span class="card-title">{{entry.filename}}</span>
-        <button (click)="delete(entry.filename)"><fa name="trash"></fa></button>
+        <button (click)="delete(entry.filename)" *ngIf="!fromDialog">
+          <fa name="trash"></fa>
+        </button>
+        <button (click)="fileSelected(entry.filename)" *ngIf="fromDialog" > <fa name="hand-pointer"></fa> 
+        </button>
       </div>
 
       <div class="card-body">
-        <img src="{{urlBase}}{{entry.filename}}">
+        <div *ngIf="fromDialog">
+            <img src="{{urlBase}}{{entry.filename}}"style="width:50%">
+        </div>
+        <div *ngIf="!fromDialog">
+            <img src="{{urlBase}}{{entry.filename}}" >
+          </div>
       </div>
       <p class="card-text">{{urlBase}}{{entry.filename}}</p>
     </div>

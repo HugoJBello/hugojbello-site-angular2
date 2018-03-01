@@ -40,6 +40,7 @@ import { CONFIG } from './config/config';
 import { TagChipComponent } from './tag-chip/tag-chip.component';
 import { DialogUploadComponent } from './dialog-upload/dialog-upload.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogFileSelectorComponent } from './dialog-file-selector/dialog-file-selector.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     FilesComponent,
     AboutComponent,
     TagChipComponent,
-    DialogUploadComponent
+    DialogUploadComponent,
+    DialogFileSelectorComponent
     ],
   imports: [
     BrowserModule,
@@ -94,6 +96,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
   bootstrap: [AppComponent],
   entryComponents: [
     DialogUploadComponent,
+    DialogFileSelectorComponent
   ]
 })
 export class AppModule { }
