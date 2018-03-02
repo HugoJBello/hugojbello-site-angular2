@@ -107,18 +107,25 @@ export class EditorComponent implements OnInit {
       width: '600px',
     });
     
-    const sub = dialogRef.componentInstance.selectedFile.subscribe( (selectedImages)=>{
+    const subSelected = dialogRef.componentInstance.selectedFile.subscribe( (selectedImages)=>{
       this.selectedImages=[];
-      for (var image of selectedImages){
-        this.selectedImages.push(CONFIG.URL_BACKEND + "/images/image/" + image);
+      if(selectedImages){
+        for (var image of selectedImages){
+         this.selectedImages.push(CONFIG.URL_BACKEND + "/images/image/" + image);
+        }
       }
+    });
+
+    const subUse = dialogRef.componentInstance.useButton.subscribe( ()=>{
+      for (var url of this.selectedImages){
+        this.text = this.text + "\n ![](" + url + ")";
+      }
+      this.dialog.closeAll();
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      for (var url of this.selectedImages){
-        this.text = this.text + "\n ![](" + url + ")";
-      }
+      
     
     });
   }

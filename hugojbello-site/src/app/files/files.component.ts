@@ -27,7 +27,8 @@ export class FilesComponent implements OnInit {
 
   selectedFilesArr:string[]=[];
   @Output() selectedFile =new EventEmitter<string[]>();
-  
+  @Output() useButton =new EventEmitter<string>();
+
 
   constructor(public fileUploader:FileUploaderService) { }
 
@@ -57,6 +58,10 @@ export class FilesComponent implements OnInit {
         this.selectedFilesArr.splice(index,1);
       }
       this.selectedFile.emit(this.selectedFilesArr);
+    }
+
+    onUseButton(){
+      this.useButton.emit("clicked");
     }
 
     alreadySelected(filename){

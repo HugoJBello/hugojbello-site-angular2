@@ -11,12 +11,17 @@ export class DialogFileSelectorComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogFileSelectorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
     @Output() selectedFile =new EventEmitter<string[]>();
+    @Output() useButton =new EventEmitter<string>();
 
     onNoClick(): void {
       this.dialogRef.close();
     }
     ngOnInit(){
 
+    }
+
+    onUseButton(){
+      this.useButton.emit("clicked");
     }
 
     uploadedFile(filename){

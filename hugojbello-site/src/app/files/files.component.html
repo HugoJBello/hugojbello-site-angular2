@@ -1,7 +1,10 @@
 
-
+<div  *ngIf="fromDialog">
+    <button class="btn btn-secondary" (click)="onUseButton()">Use selected images</button>
+  </div>
 
 <div class="tag-card-outer" *ngFor="let entry of filesDTO">
+
   <div class="card tag-card" style="width: 20rem;">
     <div class="block imgContainer">
 
