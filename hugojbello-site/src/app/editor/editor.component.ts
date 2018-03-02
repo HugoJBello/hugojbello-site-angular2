@@ -103,6 +103,8 @@ export class EditorComponent implements OnInit {
 
   public onSelectImage(): void {  
     let dialogRef = this.dialog.open(DialogFileSelectorComponent, {
+      height: '600px',
+      width: '600px',
     });
     
     const sub = dialogRef.componentInstance.selectedFile.subscribe( (selectedImages)=>{
