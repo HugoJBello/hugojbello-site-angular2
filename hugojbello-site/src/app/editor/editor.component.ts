@@ -26,7 +26,7 @@ export class EditorComponent implements OnInit {
   entryFinderSubscription: Subscription;
   error:any;
   isNew:string = "true";
-
+  selectedImages:string[];
   private sub: any;
 
   constructor( public entryEditor: EntryEditorService, private router:Router,
@@ -100,13 +100,24 @@ export class EditorComponent implements OnInit {
       
     });
   }
+
   public onSelectImage(): void {  
     let dialogRef = this.dialog.open(DialogFileSelectorComponent, {
+    });
+    
+    const sub = dialogRef.componentInstance.selectedFile.subscribe( (selectedImages)=>{
+      this.selectedImages=[];
+      for (var image of selectedImages){
+        this.selectedImages.push(CONFIG.URL_BACKEND + "/images/image/" + image);
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
+      for (var url of this.selectedImages){
+        this.text = this.text + "\n ![](" + url + ")";
+      }
+    
     });
   }
   

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output,EventEmitter } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
@@ -10,6 +10,7 @@ export class DialogFileSelectorComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogFileSelectorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Output() selectedFile =new EventEmitter<string[]>();
 
     onNoClick(): void {
       this.dialogRef.close();
@@ -19,6 +20,6 @@ export class DialogFileSelectorComponent implements OnInit {
     }
 
     uploadedFile(filename){
-      console.log(filename);
+      this.selectedFile.emit(filename);
     }
 }

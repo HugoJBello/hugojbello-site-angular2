@@ -24,7 +24,9 @@ export class FilesComponent implements OnInit {
 
   @Input() fromDialog:boolean = false;
   @Input() redirectTo:string="";
-  @Output() uploadedFile =new EventEmitter<string>();
+
+  selectedFilesArr:string[]=[];
+  @Output() selectedFile =new EventEmitter<string[]>();
   
 
   constructor(public fileUploader:FileUploaderService) { }
@@ -49,7 +51,16 @@ export class FilesComponent implements OnInit {
     }
 
     fileSelected(filename){
-      this.uploadedFile.emit(filename);
+      if (!this.alreadySelected(filename)) this.selectedFilesArr.push(filename);
+      else {
+        var index = this.selectedFilesArr.indexOf(filename);
+        this.selectedFilesArr.splice(index,1);
+      }
+      this.selectedFile.emit(this.selectedFilesArr);
+    }
+
+    alreadySelected(filename){
+      return(this.selectedFilesArr.indexOf(filename)>-1);
     }
 
     delete(filename){

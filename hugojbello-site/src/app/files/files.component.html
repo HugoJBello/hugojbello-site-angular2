@@ -10,13 +10,16 @@
         <button (click)="delete(entry.filename)" *ngIf="!fromDialog">
           <fa name="trash"></fa>
         </button>
-        <button (click)="fileSelected(entry.filename)" *ngIf="fromDialog" > <fa name="hand-pointer"></fa> 
+        <button (click)="fileSelected(entry.filename)" *ngIf="fromDialog" > 
+          
+          <fa *ngIf="alreadySelected(entry.filename)" name="check-circle"></fa> 
+          <fa *ngIf="!alreadySelected(entry.filename)" name="check"></fa> 
         </button>
       </div>
 
       <div class="card-body">
         <div *ngIf="fromDialog">
-            <img src="{{urlBase}}{{entry.filename}}"style="width:50%">
+            <img src="{{urlBase}}{{entry.filename}}" style="width:50%">
         </div>
         <div *ngIf="!fromDialog">
             <img src="{{urlBase}}{{entry.filename}}" >
